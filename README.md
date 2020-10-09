@@ -10,11 +10,11 @@ CG演習のmac 利用者向けのページです。<br>
 **第０回**　[環境構築 ( 0_HelloWorld )](https://github.com/trnciii/cge2020mac/tree/0_HelloWorld)<br>
 **第１回**　[一本の線を描く ( 1_lines )](https://github.com/trnciii/cge2020mac/tree/1_lines)<br>
 **第１回**　[円を描く ( 1_circle )](https://github.com/trnciii/cge2020mac/tree/1_circle)<br>
+**第２回**　[相対移動 ( 2_surface)](https://github.com/trnciii/cge2020mac/tree/2_surface)<br>
 
 
 ## 連絡先
-なにかつまづいた場合はどこに質問すればいいんだろう。そのうちやりかたも固まってくると思います。<br>
-とりあえずこの資料を作った土井には以下で連絡がつきます。<br>
+プログラムが動かないという報告や、わからない部分の質問等をどこでうけつけるかがまだ決まってません。とりあえずこの資料を作った土井には以下で連絡がつきます。<br>
 
 doi.kohei.682@s.kyushu-u.ac.jp<br>
 [@trnciii](https://twitter.com/trnciii)
