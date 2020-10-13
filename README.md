@@ -20,6 +20,7 @@ CG演習のmac 利用者向けのページです。<br>
 **第１回**　[一本の線を描く ( 1_lines )](https://github.com/trnciii/cge2020mac/tree/1_lines)<br>
 **第１回**　[円を描く ( 1_circle )](https://github.com/trnciii/cge2020mac/tree/1_circle)<br>
 **第２回**　[相対移動 ( 2_surface)](https://github.com/trnciii/cge2020mac/tree/2_surface)<br>
+**第３回**　[陰面消去 & 階層構造 ( 3_box )](https://github.com/trnciii/cge2020mac/tree/3_box)<br>
 
 ## 各資料について
 ### 従来資料との違いはなにか
