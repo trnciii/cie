@@ -15,12 +15,16 @@ CG演習のmac 利用者向けのページです。<br>
 各項目はもとの授業資料の番号に対応しています。一回の授業で複数のサンプルプログラムを使うことがあります。先の内容もここに順次追加予定です。<br>
 ![](docs/list.png)*(もとの資料より)*
 
+|回|タイトル|branch (リンク)|
+|:-|:-|:-|
+|第0回|環境構築			|[0_HelloWorld](https://github.com/trnciii/cge2020mac/tree/0_HelloWorld)|
+|第1回|一本の線を描く		|[1_lines](https://github.com/trnciii/cge2020mac/tree/1_lines)|
+|第1回|円を描く			|[1_circle](https://github.com/trnciii/cge2020mac/tree/1_circle)|
+|第2回|相対移動			|[2_surface](https://github.com/trnciii/cge2020mac/tree/2_surface)|
+|第3回|陰面消去 & 階層構造	|[3_box](https://github.com/trnciii/cge2020mac/tree/3_box)|
+|第4回|アニメーション		|[4_animation](https://github.com/trnciii/cge2020mac/tree/4_animation)|
 
-**第０回**　[環境構築 ( 0_HelloWorld )](https://github.com/trnciii/cge2020mac/tree/0_HelloWorld)<br>
-**第１回**　[一本の線を描く ( 1_lines )](https://github.com/trnciii/cge2020mac/tree/1_lines)<br>
-**第１回**　[円を描く ( 1_circle )](https://github.com/trnciii/cge2020mac/tree/1_circle)<br>
-**第２回**　[相対移動 ( 2_surface)](https://github.com/trnciii/cge2020mac/tree/2_surface)<br>
-**第３回**　[陰面消去 & 階層構造 ( 3_box )](https://github.com/trnciii/cge2020mac/tree/3_box)<br>
+---
 
 ## 各資料について
 ### 従来資料との違いはなにか
@@ -60,4 +64,4 @@ doi.kohei.682@s.kyushu-u.ac.jp<br>
 A. フォルダが実在するか確認, バージョンの数字などは自分の環境にあわせる
 
 ### Q. コンパイルできるが、実行すると "abort with payload" とでる
-A. とりあえず配布してるファイルのビルド/実行を試してみてください。ライブラリを見つけきれてないようで、他の事例とあわせて調査中です。
+A. ビルドのクリーンからの再ビルドを試してみてください。ライブラリを見つけきれてないようで、他の事例とあわせて調査中です。
