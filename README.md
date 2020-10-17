@@ -23,6 +23,7 @@ CG演習のmac 利用者向けのページです。<br>
 |第2回|相対移動			|[2_surface](https://github.com/trnciii/cge2020mac/tree/2_surface)|
 |第3回|陰面消去 & 階層構造	|[3_box](https://github.com/trnciii/cge2020mac/tree/3_box)|
 |第4回|アニメーション		|[4_animation](https://github.com/trnciii/cge2020mac/tree/4_animation)|
+|第5回|質感 & ライティング  |[4_animation](https://github.com/trnciii/cge2020mac/tree/5_material)|
 
 ---
 
