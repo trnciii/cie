@@ -13,7 +13,10 @@ CG演習のmac 利用者向けのページです。<br>
 
 ## 授業資料
 各項目はもとの授業資料の番号に対応しています。一回の授業で複数のサンプルプログラムを使うことがあります。先の内容もここに順次追加予定です。<br>
-![](docs/list.png)*(もとの資料より)*
+
+### 前半
+
+![](docs/list_0.png)
 
 |回|タイトル|branch (リンク)|
 |:-|:-|:-|
@@ -24,6 +27,17 @@ CG演習のmac 利用者向けのページです。<br>
 |第3回|陰面消去 & 階層構造	|[3_box](https://github.com/trnciii/cge2020mac/tree/3_box)|
 |第4回|アニメーション		|[4_animation](https://github.com/trnciii/cge2020mac/tree/4_animation)|
 |第5回|質感 & ライティング  |[5_material](https://github.com/trnciii/cge2020mac/tree/5_material)|
+
+### 後半
+
+![](docs/list_1.png)
+
+|回|タイトル|branch (リンク)|
+|:-|:-|:-|
+|第一回|マウスやキーボードによる入力|[11_input101](https://github.com/trnciii/cge2020mac/tree/11_input101)|
+|第二回|ワンクリックアクションの制作|12_onclick|
+|第三回|タイミングアクション|13_timing|
+|第四回|軌跡を用いたインタラクション|14_path|
 
 ---
 
