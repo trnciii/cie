@@ -79,4 +79,14 @@ doi.kohei.682@s.kyushu-u.ac.jp<br>
 A. フォルダが実在するか確認, バージョンの数字などは自分の環境にあわせる
 
 ### Q. コンパイルできるが、実行すると "abort with payload" とでる
-A. ビルドのクリーンからの再ビルドを試してみてください。ライブラリを見つけきれてないようで、他の事例とあわせて調査中です。
+A. ライブラリ利用に関する権限が原因でこういうことが起きるようです。Xcodeの設定で *signing/capabilities* のところに *Hardened Runtime* という項目があったら、削除したのち実行してみてください。
+
+* 権限がきつくない状態
+
+<img src="docs/sig-cap.png" width="750">
+
+* もしこの項目があれば削除
+
+<img src="docs/runtime.png" width="750">
+
+
