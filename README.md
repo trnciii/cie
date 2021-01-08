@@ -36,7 +36,7 @@ CG演習のmac 利用者向けのページです。<br>
 |:-|:-|:-|
 |第一回|マウスやキーボードによる入力|[11_input101](https://github.com/trnciii/cge2020mac/tree/11_input101)|
 |第二回|ワンクリックアクションの制作|[12_oneclick](https://github.com/trnciii/cge2020mac/tree/12_oneclick)|
-|第三回|タイミングアクション|13_timing|
+|第三回|タイミングアクション|[13_timing](https://github.com/trnciii/cge2020mac/tree/13_timing)|
 |第四回|軌跡を用いたインタラクション|14_path|
 
 ---
