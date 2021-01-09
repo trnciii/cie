@@ -12,7 +12,7 @@ CG演習のmac 利用者向けのページです。<br>
 * [よくある質問](#よくある質問)  
 
 ## 授業資料
-各項目はもとの授業資料の番号に対応しています。一回の授業で複数のサンプルプログラムを使うことがあります。先の内容もここに順次追加予定です。<br>
+各項目はもとの授業資料の番号に対応しています。
 
 ### 前半
 
@@ -20,7 +20,7 @@ CG演習のmac 利用者向けのページです。<br>
 
 |回|タイトル|branch (リンク)|
 |:-|:-|:-|
-|第0回|環境構築			|[0_HelloWorld](https://github.com/trnciii/cge2020mac/tree/0_HelloWorld)|
+|--|環境構築			|[0_HelloWorld](https://github.com/trnciii/cge2020mac/tree/0_HelloWorld)|
 |第1回|一本の線を描く		|[1_lines](https://github.com/trnciii/cge2020mac/tree/1_lines)|
 |第1回|円を描く			|[1_circle](https://github.com/trnciii/cge2020mac/tree/1_circle)|
 |第2回|相対移動			|[2_surface](https://github.com/trnciii/cge2020mac/tree/2_surface)|
@@ -34,10 +34,10 @@ CG演習のmac 利用者向けのページです。<br>
 
 |回|タイトル|branch (リンク)|
 |:-|:-|:-|
-|第一回|マウスやキーボードによる入力|[11_input101](https://github.com/trnciii/cge2020mac/tree/11_input101)|
-|第二回|ワンクリックアクションの制作|[12_oneclick](https://github.com/trnciii/cge2020mac/tree/12_oneclick)|
-|第三回|タイミングアクション|[13_timing](https://github.com/trnciii/cge2020mac/tree/13_timing)|
-|第四回|軌跡を用いたインタラクション|14_path|
+|第1回|マウスやキーボードによる入力|[11_input101](https://github.com/trnciii/cge2020mac/tree/11_input101)|
+|第2回|ワンクリックアクションの制作|[12_oneclick](https://github.com/trnciii/cge2020mac/tree/12_oneclick)|
+|第3回|タイミングアクション|[13_timing](https://github.com/trnciii/cge2020mac/tree/13_timing)|
+|第4回|軌跡を用いたインタラクション|[14_trace](https://github.com/trnciii/cge2020mac/tree/14_trace)|
 
 ---
 
