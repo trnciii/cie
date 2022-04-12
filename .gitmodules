@@ -1,0 +1,33 @@
+[submodule "docs/lines"]
+	path = docs/lines
+	url = https://github.com/trnciii/ciesample-lines
+[submodule "docs/circle"]
+	path = docs/circle
+	url = https://github.com/trnciii/ciesample-circle
+[submodule "docs/trace"]
+	path = docs/trace
+	url = https://github.com/trnciii/ciesample-trace
+[submodule "docs/timing"]
+	path = docs/timing
+	url = https://github.com/trnciii/ciesample-timing
+[submodule "docs/oneclick"]
+	path = docs/oneclick
+	url = https://github.com/trnciii/ciesample-oneclick
+[submodule "docs/input"]
+	path = docs/input
+	url = https://github.com/trnciii/ciesample-input
+[submodule "docs/setup"]
+	path = docs/setup
+	url = https://github.com/trnciii/ciesample-setup
+[submodule "docs/material"]
+	path = docs/material
+	url = https://github.com/trnciii/ciesample-material
+[submodule "docs/animation"]
+	path = docs/animation
+	url = https://github.com/trnciii/ciesample-animation
+[submodule "docs/box"]
+	path = docs/box
+	url = https://github.com/trnciii/ciesample-box
+[submodule "docs/surface"]
+	path = docs/surface
+	url = https://github.com/trnciii/ciesample-surface

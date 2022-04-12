@@ -1,2 +1,15 @@
 site_name: コンテンツインタラクション演習
 theme: material
+nav:
+  - Home: index.md
+  - 環境構築: setup
+  - 2D 線・円:
+    - 直線: lines
+    - 円: circle
+  - 2D 相対移動: surface
+  - 3D 階層構造: box
+  - アニメーション: animation
+  - マウスやキーボードによる入力: input
+  - ワンクリックアクションの制作: oneclick
+  - タイミングアクション: timing
+  - 軌跡を用いたインタラクション: trace
