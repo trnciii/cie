@@ -1,7 +1,5 @@
 CG演習のmac 利用者向けのページです。
 
-各回の内容は branch として追加されています。(あまり正しいつかいかたではない)
-
 ## 目次
 * [授業資料](#授業資料)
 * [各資料について](#各資料について)
@@ -15,7 +13,7 @@ CG演習のmac 利用者向けのページです。
 
 ### 前半
 
-![](docs/list_0.png)
+![](img/home/list_0.png)
 
 |回|タイトル|branch (リンク)|
 |:-|:-|:-|
@@ -29,7 +27,7 @@ CG演習のmac 利用者向けのページです。
 
 ### 後半
 
-![](docs/list_1.png)
+![](img/home/list_1.png)
 
 |回|タイトル|branch (リンク)|
 |:-|:-|:-|
@@ -60,7 +58,7 @@ CG演習のmac 利用者向けのページです。
 ### フォルダの構成
 基本的にすべてのサンプルプログラムが以下のようなフォルダ構成になっています。
 
-![](docs/outline_src.png)<br>
+![](outline_src.png)<br>
 src フォルダの中に `main.cpp` というファイルが存在しており、だいたいここにプログラムが書かれています。
 授業の回によってはほかのソースやヘッダが一緒に入っています。
 
@@ -89,10 +87,10 @@ Xcodeの設定で *signing/capabilities* のところに *Hardened Runtime* と�
 
 * 権限がきつくない状態
 
-<img src="docs/sig-cap.png" width="750">
+<img src="img/home/sig-cap.png" width="750">
 
 * もしこの項目があれば削除
 
-<img src="docs/runtime.png" width="750">
+<img src="img/home/runtime.png" width="750">
 
 
