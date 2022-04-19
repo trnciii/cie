@@ -1,25 +1,10 @@
+# 質感・マテリアル・ライティング
+
 この資料は、従来版の第5回 - 質感・マテリアル・ライティング に対応します。
 [このリポジトリ](https://github.com/trnciii/ciesample-material)からファイルをダウンロードしたら`sample.xcodeproj` を開き、実行できるか確認してください。
-
-## 目次
-* [準備](#準備)
-* [照明を当てよう](#照明を当てよう)
-	* [照明の位置と色](#照明の位置と色)
-	* [複数の光源をつかう](#複数の光源をつかう)
-* [材質の設定](#材質の設定)
-	* [法線の話](#法線の話)
-	* [色と質感](#色と質感)
-* [課題1](#課題1)
-* [課題2](#課題2)
-* [課題3](#課題3)
-* [オブジェクトいろいろ](#オブジェクトいろいろ)
-
-
-## 準備
-ここのコードをダウンロード、解凍してください。sample.xcodeproj を開き実行すると図のような立方体が表示されることを確認してください。
+また、図のような立方体が表示されることを確認してください。
 
 <img src="docs/box_no_light.png" width="300">
-
 
 
 ## 照明を当てよう
@@ -231,8 +216,9 @@ glMaterialf( GL_FRONT_AND_BACK, GL_SHININESS, 120 ); // 鏡面反射の鋭さ
 ![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/transbox.gif)
 
 
+## 課題
 
-## 課題1
+### 課題1
 下の画のように材質(色)を設定して下さい。
 
 ![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/colorcube2.gif)
@@ -240,18 +226,18 @@ glMaterialf( GL_FRONT_AND_BACK, GL_SHININESS, 120 ); // 鏡面反射の鋭さ
 
 立方体の面や頂点ごとに材質を設定するためには、box.cpp にある `makebox`関数を書き換えてください。
 
-## 課題2
+### 課題2
 鏡面反射を設定して、以下のような画面を作ってください。
 
 ![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/mat_boxes.jpg)
 
-## 課題3
+### 課題3
 前回までに自分の作ったロボットに質感設定をしてください。
 
 
 
 ## オブジェクトいろいろ
-途中で球体を表示しましたが、ほかにも基本的なオブジェクトが用意されています。
+この章では球体を表示しましたが、ほかにも基本的なオブジェクトが用意されています。
 
 |オブジェクトの種類|関数|
 |:-:|:-|
