@@ -1,24 +1,8 @@
+# 相対移動
+
 この章は 第2回 相対移動 の内容に対応しています。
 [このリポジトリ](https://github.com/trnciii/ciesample-surface)からファイルをダウンロードしたら`sample.xcodeproj` を開き、実行できるか確認してください。
-
-
-
-## 目次
-* [準備](#準備)
-* [プログラムの説明](#プログラムの説明)
-	* [描画内容](#描画内容)
-	* [図形のタイプ](#図形のタイプ)
-	* [再描画](#再描画)
-* [課題1](#課題1)
-* [ディスプレイリスト](#ディスプレイリスト)
-* [移動・回転・拡大縮小](#移動-回転-拡大縮小)
-* [課題2](#課題2)
-* [行列の初期化](#行列の初期化)
-* [課題3](#課題3)
-
-
-## 準備
-ここのコードをダウンロード、解凍してください。sample.xcodeproj を開き実行すると、中央に白い四角形が現れるはずです。	
+正しく実行できれば、ウィンドウ中央に白い四角形が描画されます。
 
 
 ## プログラムの説明
@@ -84,11 +68,6 @@ void reshape(GLFWwindow* window, int w, int h)
 
 この「視野の範囲」は３次元であり、視体積と呼びます。
 
-
-## 課題1
-あなたのイニシャルを、画面上に描いてください。"MP1”だとイメージとしては下のようなものになります。
-
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/surface/MP1.gif)
 
 ## ディスプレイリスト
 ディスプレイリストを使うと、図形を描く、などの命令を保存し、それを簡単に呼び出したりすることができます。つまり、一度定義した物体を「使い回す」事ができます。
@@ -174,19 +153,33 @@ glCallList(SQUARE); // 定義されているオブジェクトを呼び出し
 上の例では、移動T後、回転Rを行っていることになります。
 イメージとしては下の図のようになります。
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/surface/matrix.png)
+![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/matrix.png)
 
-## 課題2
+
+## 行列の初期化
+
+いま学んだような、どんどん変換が積み重なっていく仕組みでは、一度書いた変換がそのあと全ての変換に影響するので直感的に操作しにくい場合があります。
+これを解消するため、必要に応じて行列を初期化することができます。
+
+`glLoadIdentity()`を使うことで行列を初期化し、それまで使われた変換行列が、この関数以降には全く影響しなくなります。
+
+
+## 課題
+
+### 課題1
+
+あなたのイニシャルを、画面上に描いてください。"MP1”だとイメージとしては下のようなものになります。
+
+![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/MP1.gif)
+
+
+### 課題2
 次のような画面を作ってみて下さい。
 
 ![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/1_2_var0.gif)
 
-## 行列の初期化
-このようにどんどん変換が積み重なっていく仕組みでは、一度書いた変換がそのあと全ての変換に影響するので直感的に操作しにくい場合があります。これを解消するため、必要に応じて行列を初期化することができます。
 
-`glLoadIdentity()`を使うことで行列を初期化し、それまで使われた変換行列が、この関数以降には全く影響しなくなります。
-
-## 課題3
+### 課題3
 次のような画面を作ってみて下さい。
 
 <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/ogl1_4.gif" width="300"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/square2.gif" width="300"><br>
