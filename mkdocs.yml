@@ -1,5 +1,5 @@
 site_name: コンテンツインタラクション演習
-theme: material
+theme: readthedocs
 nav:
   - Home: index.md
   - 環境構築: setup/README.md
