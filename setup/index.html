@@ -53,33 +53,11 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">環境構築</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#_2">各種インストール</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#xcode">xcode</a>
+    <li class="toctree-l2"><a class="reference internal" href="#xcode">xcode</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#brew">brew</a>
+    <li class="toctree-l2"><a class="reference internal" href="#brew">brew</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#glfw">GLFW</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_3">プロジェクトの作成</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#_4">ライブラリ追加</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_5">ヘッダ追加</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_6">コードを書いてウィンドウを出す</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#q-glfwglfw3h-file-not-found">Q. GLFW/glfw3.h file not found とエラーが出る</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#q-abort-with-payload">Q. コンパイルできるが、実行すると "abort with payload" とでる</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#glfw">GLFW</a>
     </li>
     </ul>
                     </li>
@@ -152,25 +130,23 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">環境構築</h1>
-<p>以下のサイトを参考にして、黒いウィンドウを出すとこまでやります。適宜参照してください。
+                <p>以下のサイトを参考にして、黒いウィンドウを出すとこまでやります。適宜参照してください。
 <a href="https://qiita.com/souring001/items/64881ff1383a15271b5b">https://qiita.com/souring001/items/64881ff1383a15271b5b</a></p>
 <p>完成したプロジェクトファイルを<a href="https://github.com/trnciii/ciesample-setup">こちら</a>に置いてるので、最悪zipでダウンロードしてプログラムを実行できることを確認してください。</p>
-<h2 id="_2">各種インストール</h2>
-<p>xcode, homebrew, GLFW をインストールします。</p>
-<h3 id="xcode">xcode</h3>
+<h1 id="_1">各種インストール</h1>
+<h2 id="xcode">xcode</h2>
 <p>App store で探してインストールしてください  </p>
-<h3 id="brew">brew</h3>
+<h2 id="brew">brew</h2>
 <p>homebrew を使って授業で使うライブラリをインストールします。<br>
 まだ入れてない方は、ターミナルから下のコードでいれましょう。<a href="https://brew.sh/">https://brew.sh/</a></p>
 <pre><code class="language-commandline">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;
 </code></pre>
-<h3 id="glfw">GLFW</h3>
+<h2 id="glfw">GLFW</h2>
 <p>ターミナルで以下のコードをいれます</p>
 <pre><code class="language-commandline">brew install glfw
 </code></pre>
 <hr />
-<h2 id="_3">プロジェクトの作成</h2>
+<h1 id="_2">プロジェクトの作成</h1>
 <p>インストールしたライブラリの動作確認のため、最も簡単なプログラムを書いてみます。
 ここから下は参考サイトをみたほうがはやいという人もいると思います。
 また面倒な人は、<a href="https://github.com/trnciii/ciesample-setup">ここ</a>からプロジェクトをダウンロードして<code>sample.xcodeproj</code>を開き、実行できるか確認するだけでもいいです。<br>
@@ -179,16 +155,16 @@
 <img src="docs/im_new1.png" width="500"><br>
 ↓<br>
 <img src="docs/im_new2.png" width="500"></p>
-<h3 id="_4">ライブラリ追加</h3>
+<h2 id="_3">ライブラリ追加</h2>
 <ul>
 <li>Build phases -&gt; Link Binary with Libraries から <code>OpenGL.framework</code> を選択</li>
 <li>同じリストに <code>/usr/local/Cellar/glfw/3.3/lib</code> にある　<code>libglfw.3.3.dylib</code>　をドロップして追加
 <img alt="" src="docs/im_link.png" /></li>
 </ul>
-<h3 id="_5">ヘッダ追加</h3>
+<h2 id="_4">ヘッダ追加</h2>
 <p>Build settings -&gt; Header Search Path の項目に<code>/usr/local/Cellar/glfw/3.3.2/include</code>を追加.<br>リストの右側をrecursive に設定<br>
 <img alt="" src="docs/im_header.png" /></p>
-<h3 id="_6">コードを書いてウィンドウを出す</h3>
+<h2 id="_5">コードを書いてウィンドウを出す</h2>
 <p>main.cpp に以下のソースをコピペしてビルドします (左上の再生ボタン)<br>
 <a href="https://www.glfw.org/documentation.html">https://www.glfw.org/documentation.html</a><br></p>
 <pre><code class="language-cpp">#include &lt;GLFW/glfw3.h&gt;
@@ -231,7 +207,7 @@ int main(void)
 </code></pre>
 <p>いろいろ警告が出るかもしれませんが、しばらく待ってこのような "Hello World" という真っ黒いウィンドウが出ればOKです。<br><br>
 <img alt="" src="docs/im_window.png" /></p>
-<h2 id="faq">FAQ</h2>
+<h1 id="faq">FAQ</h1>
 <h3 id="q-glfwglfw3h-file-not-found">Q. GLFW/glfw3.h file not found とエラーが出る</h3>
 <p>A. フォルダが実在するか確認, バージョンの数字などは自分の環境にあわせる</p>
 <h3 id="q-abort-with-payload">Q. コンパイルできるが、実行すると "abort with payload" とでる</h3>

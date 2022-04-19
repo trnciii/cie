@@ -128,17 +128,17 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="_1">準備</h3>
+                <h2 id="_1">準備</h2>
 <p>本章はもとの授業資料の第一回 <strong>２次元図形を描く--線・円--</strong> の前半に対応します。<br>
 <a href="https://github.com/trnciii/ciesample-lines">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。</p>
-<h3 id="_2">目次</h3>
+<h2 id="_2">目次</h2>
 <ul>
 <li><a href="#ウィンドウの初期化">ウィンドウの初期化</a></li>
 <li><a href="#直線を描く">直線を描く</a></li>
 <li><a href="#課題1">課題1</a></li>
 <li><a href="#課題2">課題2</a></li>
 </ul>
-<h3 id="_3">ウィンドウの初期化</h3>
+<h2 id="_3">ウィンドウの初期化</h2>
 <pre><code class="language-cpp">void myinit(GLFWwindow** window)
 {
     glfwInit(); ←説明①
@@ -158,7 +158,7 @@ glClearColor(0, 1, 0, 1);
 </code></pre>
 <p>と変更して実行してみて下さい。背景の色は緑色になるはずです。<br>
 変数の型についてはこのあとの円のところで説明します。</p>
-<h3 id="_4">直線を描く</h3>
+<h2 id="_4">直線を描く</h2>
 <p>続いてdisplay関数内で、一本の線を描いています。</p>
 <pre><code class="language-cpp">void display()
 {
