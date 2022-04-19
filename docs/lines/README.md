@@ -61,7 +61,7 @@ void display()
 説明④ glBegin(); はどのような図形を描くかを指定しています。 GL_LINES は線を描く命令です。
 
 説明⑤　 glVertex2f(); は描く 図形の頂点座標 を設定しています。
-描ける図形のタイプについては、[こちら](https://github.com/trnciii/cge2020mac/blob/2_surface/README.md#%E5%9B%B3%E5%BD%A2%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97)をご覧下さい。
+描ける図形のタイプについては、[図形のタイプ](../surface/README.md#図形のタイプ)を見てください。
 
 そして、glEnd();で定義を終わります。
 
@@ -72,13 +72,15 @@ void display()
 ### 課題1
 一本の線を引くプログラムを変更して、 下図のように平行線を書いて下さい。
 
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/parallel.gif" width="250"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/parallel_tate.gif" width="250"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/check.gif" width="250"> 
+<img src="./images/parallel.gif" width="250">
+<img src="./images/parallel_tate.gif" width="250">
+<img src="./images/check.gif" width="250">
 
 ### 課題2
 平行線を引くプログラムを変更して、 下図のような図形を作って下さい。
 
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/roid.gif" width="400">
+<img src="./images/roid.gif" width="400">
 
 ヒント: まずは下図のような図形を作ります。 最終的な図形は、これを四隅に４つ描いたものです。
 
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/roid_1.gif" width="400">
+<img src="./images/roid_1.gif" width="400">

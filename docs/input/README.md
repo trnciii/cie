@@ -7,7 +7,7 @@
 
 |ウィンドウ|コンソール|
 |:-:|:-:|
-| <img src="docs/cube.png" width="400"> | <img src="docs/console.png" width="350"> |
+| <img src="images/cube.png" width="400"> | <img src="images/console.png" width="350"> |
 
 
 ## プログラムの解説
@@ -19,7 +19,7 @@
 
 ### キーボードに連動する関数
 キーボードが押されたときに動作する関数として、`KeyFunc`を定義しました。
-関数の引数は[仕様](https://www.glfw.org/docs/3.3/group__input.html#ga0192a232a41e4e82948217c8ba94fdfd)で決まっており、キーの種類や動作を表す変数として関数内で使うことができます。
+関数の引数は[仕様](https://www.glfw.org/images/3.3/group__input.html#ga0192a232a41e4e82948217c8ba94fdfd)で決まっており、キーの種類や動作を表す変数として関数内で使うことができます。
 
 ```cpp
 void KeyFunc(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -354,7 +354,7 @@ glPopMatrix();
 
 ロボットが表示され、`pos_x, pos_z`によって全体の移動ができることを確認してください。
 
-![](docs/robot.png)
+![](images/robot.png)
 
 ### 進行方向の制御
 立方体のときには気になりませんでしたが、キャラクターが移動するときには進行方向を向いてもらう方が自然に感じられますので、キーで入力した方向に応じてロボットを回転させます。
@@ -408,7 +408,7 @@ void display(int frame)
 
 これでロボットの向きを変えることができました。
 
-![](docs/move.gif)
+![](images/move.gif)
 
 ### 歩行アニメーションの追加
 さらに、移動しているときには歩いているようなアニメーションを加えてみましょう。
@@ -472,7 +472,7 @@ float phase = 0; // 追加
 
 完成するとこのようになります。
 
-![](docs/walk.gif)
+![](images/walk.gif)
 
 
 ## 課題
@@ -498,7 +498,7 @@ float phase = 0; // 追加
 
 立方体または適当なキャラクターをひとつ、マウスカーソルを追いかけるように動かしてください。
 
-![](docs/follow.gif)
+![](images/follow.gif)
 
 マウスカーソルの位置は`MousePosFunc`の引数である`x, y`から取り出して利用します。
 斜めからの視点では、カーソルの位置とロボットの移動する平面の対応を厳密に考えるのは難しいので、そのあたりは適当でいいです。

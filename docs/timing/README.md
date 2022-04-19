@@ -13,7 +13,7 @@
 また、最後に画像を書き出す方法も紹介します。
 
 
-![](docs/tiser.gif)
+![](images/tiser.gif)
 
 
 ### プログラム解説
@@ -269,7 +269,7 @@ void KeyFunc(GLFWwindow* window, int key, int scancode, int action, int mods)
 
 詳しくは[こちら](https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glReadPixels.xml)
 
-<img src="docs/capture.png" width="600">
+<img src="images/capture.png" width="600">
 
 ### 画像の保存
 

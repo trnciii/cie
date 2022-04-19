@@ -107,7 +107,7 @@ void drawRobot()
 今はロボットの全身がぐるぐると回っています。体のパーツごとに動きをつけてみましょう。
 変数`angle`を`drawRobot`に渡すようにプログラムを変更して腕を振らせてみます。
 
-![](docs/swing.gif)
+![](images/swing.gif)
 
 まず、`drawRobot`関数に引数をつくります。box.hpp, box.cpp 内でそれぞれ
 
@@ -139,7 +139,7 @@ glPopMatrix();
 回転の軸はz軸(奥行き方向)としたいので、各成分は順に(0,0,1)としました。<br>
 この状態で実行してみると、だいたいこのような動きになるのではないでしょうか。
 
-![](docs/swing_bcentered.gif)
+![](images/swing_bcentered.gif)
 
 現在の設定では、ロボットの腕を回すとき、腕を作っているボックスのちょうど真中を中心にして回転してしまいます。本当は、ロボットの腕の付け根を中心にして回って欲しいので、`glTranslated`をうまく利用します。
 
@@ -158,7 +158,7 @@ glPopMatrix();
 2. (原点を中心に)腕の回転
 3. 回転した腕を右肩の位置まで移動
 
-![](docs/transform.jpg)
+![](images/transform.jpg)
 
 
 ## 課題

@@ -13,11 +13,11 @@
 ## プログラムの概要
 このプログラムでは、これまでの平行投影法と違い **透視投影法** によって立方体を描画しています。
 main.cpp の中にある関数`display()`の中で` makebox(1.0, 1.0, 1.0);`という関数が使用されており、これで以下の図のように幅, 高さ, 奥行がそれぞれ1である立方体を描画します。<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/makebox.jpg)
+![](images/makebox.jpg)
 
 ### 立方体の描画
 立方体を作る関数` makebox`は、box.hpp, box.cpp という2つのファイルの中に定義されています。<br>
-![](docs/im_files.png)<br>
+![](images/im_files.png)<br>
 box.hpp の中を確認してみると、makebox の定義は　`makebox(width, height, length, type);` となっており、引数は順に ** *x方向の大きさ, y方向の大きさ, z方向の大きさ, 描画タイプ* ** を指定します。
 
 ### 透視投影の設定
@@ -41,7 +41,7 @@ gluPerspective();では透視投影法の視体積を設定しています。
 括弧左から、視野角、縦横比、手前の座標、奥の座標を設定し、この範囲内にある物体を表示します。
 
 `gluPerspactive(th, w/h, near, far)`のとき次の図のようになります<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/viewport2.jpg)
+![](images/viewport2.jpg)
 
 関数`gluLookAt`は視点の設定をしています。
 最初の３つのパラメータは視点の位置です。次の３つのパラメータは注視点の位置を表しています。このサンプルでは、カメラは位置(3.0, 4.0, 5.0)から原点(0.0, 0.0, 0.0) のほうを向いています。
@@ -68,7 +68,7 @@ void display(void)
 }
 ```
 このプログラムを実行すると面の前後関係が正しく表示されない、以下のような状態になります。<br>
-![](docs/im_noDepth.png)<bt>
+![](images/im_noDepth.png)<bt>
 
 陰面消去をおこなうには、二つの関数`myinit`と`display`を以下のように書き換えます。
 
@@ -103,7 +103,7 @@ void display(void)
 }
 ```
 これで奥行を処理するデプスバッファを利用した描画を行うという指示ができました。正しく立方体を表示できたと思います。<br>
-![](docs/im_depth.png)<br>
+![](images/im_depth.png)<br>
 デプスバッファというのはそれぞれの画素ごとにポリゴンまでの距離(奥行, 深度)を記録しておくもので、この情報を利用して一番手前にあるポリゴンを表示することができます。
 
 ウィンドウ初期化のときに `glEnable(GL_DEPTH_TEST)` を書くことで、以降の描画で奥行のチェックして画素を書き換えるという設定をしています。また、毎フレームの最初にデプスバッファを初期化するため、`glClear`関数に `GL_DEPTH_BUFFER_BIT` を与えています。
@@ -111,7 +111,7 @@ void display(void)
 
 ## 階層構造
 ボックスが綺麗に表示できるようになったところで、すこし複雑な表現をおこなってみましょう。このように複数のボックスがあるとします。<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes.jpg)<br>
+![](images/boxes.jpg)<br>
 
 ### 階層構造とは
 ここで、Bのオブジェクトを動かすとAやCが一緒に動くようにするにはどうしたらいいでしょうか。
@@ -120,16 +120,16 @@ void display(void)
 
 |   幹を動かせば木全体が動く(理想)    |   幹を動かしても葉や枝が残ってしまう場合 |
 |:------------------------------:|:-------------------------------:|
-|![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/tree_all.jpg)|![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/3d/tree_sep.jpg)|
+|![](images/tree_all.jpg)|![](images/tree_sep.jpg)|
 
 これは、階層構造をつくる＝オブジェクトの間に親子関係をつくることで実現できます。<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/oyako_1.gif)
+![](images/oyako_1.gif)
 
 例えば、AがBの親のとき、Aが動くとBもAとの位置関係を保ったままついてきます。<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/oyako_2.gif)
+![](images/oyako_2.gif)
 
 Aがその場で回転するとどうなるでしょう？BはAの周りをぐるぐると回ることになります。<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/oyako_3.gif)
+![](images/oyako_3.gif)
 
 一方Bがどんなに動いても、Aがついてきたりはしません。Bが拡大・縮小しても、その場で回転しても、Aには全く影響がありません。しかしやっぱり、散々Bが動いてAとの距離が相当に離れてしまっても、Aが移動するとその位置関係を保ったままBはついてきます。
 
@@ -157,11 +157,11 @@ glPopMatrix(); // 階層を戻る
 なお、インデントは階層をわかりやすくするためにつけています。
 
 ★の`glTranslated(0,0,0)`を引数を適当に変えてボックスを移動させてみましょう。ボックスBがボックスAに追従して移動します。<br>
-<img src="docs/im_t1L.png" width="300">
-<img src="docs/im_t1R.png" width="300">
+<img src="images/im_t1L.png" width="300">
+<img src="images/im_t1R.png" width="300">
 
 一方で◆の`glTranslated(0,0,0)`を変更してみると、ボックスBだけを移動させることができます。<br>
-<img src="docs/im_t2.png" width="300">
+<img src="images/im_t2.png" width="300">
 
 回転や拡大/縮小などの操作に関しても同様のはたらきがあります。
 
@@ -170,20 +170,20 @@ glPopMatrix(); // 階層を戻る
 
 ### 課題1
 前回までのプログラムを参考に、箱を増殖させて次のようなものを作ってみてください。<br>
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes2.PNG" width="300">
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes3.PNG" width="300">
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes4.PNG" width="300">
+<img src="images/boxes2.PNG" width="300">
+<img src="images/boxes3.PNG" width="300">
+<img src="images/boxes4.PNG" width="300">
 
 
 <!-- ### 課題2
 下図のようにオブジェクトを配置してください。色や形は自由に変えていいです。<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes.jpg)<br> -->
+![](images/boxes.jpg)<br> -->
 
 
 ### 課題2
 階層構造を使ってロボットを作って下さい。単純なものでもいいですし、人型のような複雑なものに挑戦してもいいです。胴体を動かすと脚や腕がついてくるといった操作が可能なものをつくり、さまざまな姿勢をとらせてください。<br>
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes.jpg" width="300">
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/robo.GIF" width="300">
+<img src="images/boxes.jpg" width="300">
+<img src="images/robo.GIF" width="300">
 
 できた画像をキャプチャして、slackのほうに共有してくれると嬉しいです。
 

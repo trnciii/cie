@@ -6,7 +6,7 @@
 
 これに軌跡を描くようにして、以下のようなプログラムを作ります。
 
-![](docs/tiser.gif)
+![](images/tiser.gif)
 
 
 ## サンプルプログラムの解説
@@ -40,7 +40,7 @@ void MousePosFunc(GLFWwindow* window, double x, double y)
 
 |ウィンドウの座標 ( x, y )|プログラム内の座標 ( stick_x, stick_y )|
 |:-:|:-:|
-|![](docs/co_screen.png)|![](docs/co_w.png)|
+|![](images/co_screen.png)|![](images/co_w.png)|
 
 また、デフォルトの球と円柱を利用してカーソルの場所に描画しています。
 

@@ -27,23 +27,23 @@ brew install glfw
 インストールしたライブラリの動作確認のため、最も簡単なプログラムを書いてみます。
 ここから下は参考サイトをみたほうがはやいという人もいると思います。
 また面倒な人は、[ここ](https://github.com/trnciii/ciesample-setup)からプロジェクトをダウンロードして`sample.xcodeproj`を開き、実行できるか確認するだけでもいいです。<br>
-<img src="docs/im_dl.png" width="300">
+<img src="images/im_dl.png" width="300">
 
 
 自分でやってみたい人は、まず xcode で新しいプロジェクトを作成します<br>
-<img src="docs/im_new1.png" width="500"><br>
+<img src="images/im_new1.png" width="500"><br>
 ↓<br>
-<img src="docs/im_new2.png" width="500">
+<img src="images/im_new2.png" width="500">
 
 
 ### ライブラリ追加
 * Build phases -> Link Binary with Libraries から ``OpenGL.framework`` を選択
 * 同じリストに ``/usr/local/Cellar/glfw/3.3/lib`` にある　``libglfw.3.3.dylib``　をドロップして追加
-![](docs/im_link.png)
+![](images/im_link.png)
 
 ### ヘッダ追加
 Build settings -> Header Search Path の項目に`/usr/local/Cellar/glfw/3.3.2/include`を追加.<br>リストの右側をrecursive に設定<br>
-![](docs/im_header.png)
+![](images/im_header.png)
 
 ### コードを書いてウィンドウを出す
 main.cpp に以下のソースをコピペしてビルドします (左上の再生ボタン)<br>
@@ -89,7 +89,7 @@ int main(void)
 }
 ```
 いろいろ警告が出るかもしれませんが、しばらく待ってこのような "Hello World" という真っ黒いウィンドウが出ればOKです。<br><br>
-![](docs/im_window.png)
+![](images/im_window.png)
 
 ## FAQ
 
@@ -102,8 +102,8 @@ Xcodeの設定で *signing/capabilities* のところに *Hardened Runtime* と�
 
 * 権限がきつくない状態
 
-<img src="docs/sig-cap.png" width="750">
+<img src="images/sig-cap.png" width="750">
 
 * もしこの項目があれば\[x\]を押して削除
 
-<img src="docs/runtime.png" width="750">
+<img src="images/runtime.png" width="750">

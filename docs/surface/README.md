@@ -6,7 +6,8 @@
 
 
 ## プログラムの説明
-初期化処理については[直線の回](https://github.com/trnciii/cge2020mac/tree/1_lines)を参考にしてください。
+
+初期化処理については[直線の回](../lines/README.md)を参考にしてください。
 
 
 ### 描画内容
@@ -64,7 +65,7 @@ void reshape(GLFWwindow* window, int w, int h)
 括弧内左から、ウィンドウ左端、右端、上、下、そして手前、奥の座標を設定し、この範囲内にある物体を描画するようにしています。図にすると下のようになります。<br>
 `glOrtho(left, right, bottom, top, near, far);`のとき
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/surface/viewport1.jpg)
+![](./images/viewport1.jpg)
 
 この「視野の範囲」は３次元であり、視体積と呼びます。
 
@@ -153,7 +154,7 @@ glCallList(SQUARE); // 定義されているオブジェクトを呼び出し
 上の例では、移動T後、回転Rを行っていることになります。
 イメージとしては下の図のようになります。
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/matrix.png)
+![](./images/matrix.png)
 
 
 ## 行列の初期化
@@ -170,18 +171,20 @@ glCallList(SQUARE); // 定義されているオブジェクトを呼び出し
 
 あなたのイニシャルを、画面上に描いてください。"MP1”だとイメージとしては下のようなものになります。
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/MP1.gif)
+![](./images/MP1.gif)
 
 
 ### 課題2
 次のような画面を作ってみて下さい。
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/1_2_var0.gif)
+![](./images/1_2_var0.gif)
 
 
 ### 課題3
 次のような画面を作ってみて下さい。
 
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/ogl1_4.gif" width="300"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/square2.gif" width="300"><br>
+<img src="./images/ogl1_4.gif" width="300">
+<img src="./images/square2.gif" width="300">
 
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/1_2_var1.gif" width="300"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/1_2_var2.gif" width="300">
+<img src="./images/1_2_var1.gif" width="300">
+<img src="./images/1_2_var2.gif" width="300">

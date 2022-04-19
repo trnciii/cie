@@ -4,7 +4,7 @@
 [このリポジトリ](https://github.com/trnciii/ciesample-material)からファイルをダウンロードしたら`sample.xcodeproj` を開き、実行できるか確認してください。
 また、図のような立方体が表示されることを確認してください。
 
-<img src="docs/box_no_light.png" width="300">
+<img src="./images/box_no_light.png" width="300">
 
 
 ## 照明を当てよう
@@ -32,13 +32,13 @@ void myinit(GLFWwindow** window)
 ```
 これで実行してみると、手前から照明の当たった立方体が表示されます。材質の設定をしていないため立方体の色が白くなってしまいましたが、これは後でやります。
 
-<img src="docs/box_light.png" width="300">
+<img src="./images/box_light.png" width="300">
 
 ### 照明の位置と色
 追加した光源の位置や色を設定することができます。
 例として、(白い)立方体の左上から、緑の光源で照らすように`display`関数を次のように書き換えます。
 
-<img src="docs/light_set.png" width="300">
+<img src="./images/light_set.png" width="300">
 
 ```cpp
 void display()
@@ -96,7 +96,7 @@ glLightfv( GL_LIGHT1, GL_DIFFUSE, white );
 ```
 
 左上の緑の光源に加えて、右側に白い光源を配置しました。<br>
-<img src="docs/lights.png" width="300">
+<img src="./images/lights.png" width="300">
 
 
 
@@ -153,7 +153,7 @@ void display()
 ```
 球体のパラメータは`gluSphere(オブジェクト, 半径 , 経度方向の解像度, 緯度方向の解像度)`となっています。実行すると、球の面の向きによって陰影がついていることが確認できます。
 
-<img src="docs/sphere.png" width="300">
+<img src="./images/sphere.png" width="300">
 
 ほかに表示できる形状については、このページの一番下[オブジェクトいろいろ](#オブジェクトいろいろ)で紹介しています。
 
@@ -201,7 +201,7 @@ void display()
 
 例えば、拡散反射を赤、鏡面反射を白、鋭い鏡面反射を設定するには以下のように書きます。
 
-<img src="docs/sphere_mtl.png" width="300">
+<img src="./images/sphere_mtl.png" width="300">
 
 ```cpp
 glMaterialfv( GL_FRONT_AND_BACK, GL_DIFFUSE, red ); //拡散反射
@@ -213,7 +213,7 @@ glMaterialf( GL_FRONT_AND_BACK, GL_SHININESS, 120 ); // 鏡面反射の鋭さ
 
 `float red[] = { 0.8f, 0.2f, 0.2f, 0.5f };`
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/transbox.gif)
+![](./images/transbox.gif)
 
 
 ## 課題
@@ -221,15 +221,15 @@ glMaterialf( GL_FRONT_AND_BACK, GL_SHININESS, 120 ); // 鏡面反射の鋭さ
 ### 課題1
 下の画のように材質(色)を設定して下さい。
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/colorcube2.gif)
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/colorcube1.gif)
+![](./images/colorcube2.gif)
+![](./images/colorcube1.gif)
 
 立方体の面や頂点ごとに材質を設定するためには、box.cpp にある `makebox`関数を書き換えてください。
 
 ### 課題2
 鏡面反射を設定して、以下のような画面を作ってください。
 
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/mat_boxes.jpg)
+![](./images/mat_boxes.jpg)
 
 ### 課題3
 前回までに自分の作ったロボットに質感設定をしてください。
@@ -241,7 +241,7 @@ glMaterialf( GL_FRONT_AND_BACK, GL_SHININESS, 120 ); // 鏡面反射の鋭さ
 
 |オブジェクトの種類|関数|
 |:-:|:-|
-|![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/solidsphere.gif)![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wiresphere.gif)|gluSphere(オブジェクト, 半径, 経度方向の分割数, 緯度方向の分割数)|
-|![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/solidcylind.gif)![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wirecylind.gif)|gluCylinder(オブジェクト, 底面の半径, 上面の半径, 高さ, 円周方向の分割数, 縦の分割数)|
-|![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/soliddisk.gif)![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wiredisk.gif)|gluDisk(オブジェクト, 内の半径, 外の半径, 円周の分割数, 半径の分割数)|
-|![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/solidpartial.gif)![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wirepartial.gif)|gluPartialDisk(オブジェクト, 内の半径, 外の半径, 円周の分割数, 半径の分割数, 開始角度, 扇の角度)|ed(180, 0, 1, 0);
+|![](./images/solidsphere.gif)![](./images/wiresphere.gif)|gluSphere(オブジェクト, 半径, 経度方向の分割数, 緯度方向の分割数)|
+|![](./images/solidcylind.gif)![](./images/wirecylind.gif)|gluCylinder(オブジェクト, 底面の半径, 上面の半径, 高さ, 円周方向の分割数, 縦の分割数)|
+|![](./images/soliddisk.gif)![](./images/wiredisk.gif)|gluDisk(オブジェクト, 内の半径, 外の半径, 円周の分割数, 半径の分割数)|
+|![](./images/solidpartial.gif)![](./images/wirepartial.gif)|gluPartialDisk(オブジェクト, 内の半径, 外の半径, 円周の分割数, 半径の分割数, 開始角度, 扇の角度)|ed(180, 0, 1, 0);
