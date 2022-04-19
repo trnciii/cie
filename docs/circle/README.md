@@ -1,10 +1,9 @@
+# 2次元図形を描く -- 円 --
+
 ## 準備
 本章はもとの授業資料の第一回 **２次元図形を描く--線・円--** の後半に対応します。<br>
 [このリポジトリ](https://github.com/trnciii/ciesample-circle)からファイルをダウンロード, 解凍したら`sample.xcodeproj` を開き、実行できるか確認してください。
 
-## 目次
-* [プログラムの解説](#プログラムの解説)
-* [課題](#課題)
 
 ## プログラムの解説
 円を描いている部分はdisplay関数内にあります。<br>
@@ -64,6 +63,7 @@ void display(void)
 
 
 ## 課題
+
 円を描くプログラムを変更して、 下図のような図形を作って下さい。
 
 <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/daen.jpg" width="400">
