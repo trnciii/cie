@@ -1,17 +1,7 @@
+# 3D 階層構造
+
 この資料は、従来版の第３回 - 3D 階層構造 に対応します。
 [このリポジトリ](https://github.com/trnciii/ciesample-box)からファイルをダウンロードしたら`sample.xcodeproj` を開き、実行できるか確認してください。
-
-## 目次
-* [準備](#準備)<br>
-* [プログラムの概要](#プログラムの概要)<br>
-    * [立方体の描画](#立方体の描画)
-    * [透視投影の設定](#透視投影の設定)
-* [陰面消去](#陰面消去)
-* [課題1](#課題1)
-* [階層構造](#階層構造)
-    * [階層構造とは](#階層構造とは)
-    * [階層構造のつくりかた](#階層構造のつくりかた)
-* [課題2](#課題2)
 
 
 ## 準備
@@ -118,19 +108,10 @@ void display(void)
 
 ウィンドウ初期化のときに `glEnable(GL_DEPTH_TEST)` を書くことで、以降の描画で奥行のチェックして画素を書き換えるという設定をしています。また、毎フレームの最初にデプスバッファを初期化するため、`glClear`関数に `GL_DEPTH_BUFFER_BIT` を与えています。
 
-## 課題1
-前回までのプログラムを参考に、箱を増殖させて次のようなものを作ってみてください。<br>
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes2.PNG" width="300">
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes3.PNG" width="300">
-<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes4.PNG" width="300">
 
 ## 階層構造
 ボックスが綺麗に表示できるようになったところで、すこし複雑な表現をおこなってみましょう。このように複数のボックスがあるとします。<br>
 ![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes.jpg)<br>
-
-<!-- ### 課題2
-下図のようにオブジェクトを配置してください。色や形は自由に変えていいです。<br>
-![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes.jpg)<br> -->
 
 ### 階層構造とは
 ここで、Bのオブジェクトを動かすとAやCが一緒に動くようにするにはどうしたらいいでしょうか。
@@ -183,6 +164,21 @@ glPopMatrix(); // 階層を戻る
 <img src="docs/im_t2.png" width="300">
 
 回転や拡大/縮小などの操作に関しても同様のはたらきがあります。
+
+
+## 課題
+
+### 課題1
+前回までのプログラムを参考に、箱を増殖させて次のようなものを作ってみてください。<br>
+<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes2.PNG" width="300">
+<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes3.PNG" width="300">
+<img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes4.PNG" width="300">
+
+
+<!-- ### 課題2
+下図のようにオブジェクトを配置してください。色や形は自由に変えていいです。<br>
+![](http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/3d/boxes.jpg)<br> -->
+
 
 ### 課題2
 階層構造を使ってロボットを作って下さい。単純なものでもいいですし、人型のような複雑なものに挑戦してもいいです。胴体を動かすと脚や腕がついてくるといった操作が可能なものをつくり、さまざまな姿勢をとらせてください。<br>
