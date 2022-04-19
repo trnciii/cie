@@ -1,14 +1,13 @@
+# 直線
+
 ## 準備
 本章はもとの授業資料の第一回 **２次元図形を描く--線・円--** の前半に対応します。<br>
 [このリポジトリ](https://github.com/trnciii/ciesample-lines)からファイルをダウンロードしたら`sample.xcodeproj` を開き、実行できるか確認してください。
 
-## 目次
-* [ウィンドウの初期化](#ウィンドウの初期化)
-* [直線を描く](#直線を描く)
-* [課題1](#課題1)
-* [課題2](#課題2)
 
-## ウィンドウの初期化
+## プログラムの解説
+
+### ウィンドウの初期化
 ```cpp
 void myinit(GLFWwindow** window)
 {
@@ -35,7 +34,7 @@ glClearColor(0, 1, 0, 1);
 と変更して実行してみて下さい。背景の色は緑色になるはずです。<br>
 変数の型についてはこのあとの円のところで説明します。
 
-## 直線を描く
+### 直線を描く
 続いてdisplay関数内で、一本の線を描いています。
 ```cpp
 void display()
@@ -68,12 +67,14 @@ void display()
 
 以下のプログラムについては、また次の章で解説することにして、 早速このプログラムに変更を加えましょう。
 
-## 課題1
+## 課題
+
+### 課題1
 一本の線を引くプログラムを変更して、 下図のように平行線を書いて下さい。
 
 <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/parallel.gif" width="250"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/parallel_tate.gif" width="250"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/check.gif" width="250"> 
 
-## 課題2
+### 課題2
 平行線を引くプログラムを変更して、 下図のような図形を作って下さい。
 
 <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/lines/roid.gif" width="400">
