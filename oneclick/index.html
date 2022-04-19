@@ -80,6 +80,20 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">ワンクリックアクションの制作</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">プログラムの解説</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">マウスクリックによる起爆</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">課題</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1">課題1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2">課題2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3">課題3</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -124,32 +138,15 @@
           <div role="main">
             <div class="section">
               
-                <p>この資料は、従来版の後半第2回 - ワンクリックアクションの制作 に対応します。
-<a href="https://github.com/trnciii/ciesample-oneclick">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。</p>
-<h2 id="_1">目次</h2>
-<ul>
-<li><a href="#準備">準備</a></li>
-<li><a href="#プログラムの解説">プログラムの解説</a><ul>
-<li><a href="#立方体の配列">立方体の配列</a></li>
-<li><a href="#課題1">課題1</a></li>
-</ul>
-</li>
-<li><a href="#マウスクリックによる起爆">マウスクリックによる起爆</a><ul>
-<li><a href="#マウスボタン関数の定義">マウスボタン関数の定義</a></li>
-<li><a href="#課題2">課題2</a></li>
-<li><a href="#課題3">課題3</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="_2">準備</h2>
-<p>ここのコードをダウンロード、解凍してください。
+                <h1 id="_1">ワンクリックアクションの制作</h1>
+<p>この資料は、従来版の後半第2回 - ワンクリックアクションの制作 に対応します。
+<a href="https://github.com/trnciii/ciesample-oneclick">このリポジトリ</a>からファイルをダウンロードしてください。
 sample.xcodeproj を開き実行すると以下のような画面が現れます。</p>
-<p><img alt="" src="docs/initial.png" /></p>
-<h2 id="_3">プログラムの解説</h2>
+<p><img alt="" src="images/initial.png" /></p>
+<h2 id="_2">プログラムの解説</h2>
 <p>タイトルはワンクリックアクションの制作となっており、クリックによる操作がテーマではありますが、まずは使用するアニメーションを作ります。 
 目標はたくさんの立方体が爆発するように飛び散る動きです。</p>
-<p><img alt="" src="docs/exp.gif" /></p>
-<h3 id="_4">立方体の配列</h3>
+<p><img alt="" src="images/exp.gif" /></p>
 <p>サンプルではたくさんの立方体が不規則な位置に配置されています。これは、それぞれの立方体の位置をグローバル変数として用意し、最初に乱数を用いて座標を決めるという処理をおこなっています。</p>
 <p>[ main.cpp ]</p>
 <pre><code class="language-cpp">// 一番上
@@ -195,19 +192,13 @@ void display(int frame)
 <p>まず配列の使い方ですが、今回は256個の立方体を表示するため、それぞれのx, y, z座標を覚えておく必要があります。</p>
 <p><code>double pos[3*256]</code> には3次元＊256個の値が格納されます。
 データの内容は、{x, y, z}座標値をひとかたまりとして、これが立方体の数だけ並んでいます。</p>
-<p><img alt="" src="docs/ar.jpg" /></p>
+<p><img alt="" src="images/ar.jpg" /></p>
 <p>このようなデータ構造から座標を取り出すには、<strong>かたまりの幅＊立方体の番号</strong>だけ配列を進めるのが便利です。
 i番めの立方体のy座標(2番めの要素)を取り出すためには<code>pos[3*i+1]</code>とします。
 初期化, 描画の部分でどのように各座標にアクセスしているか確認してください。</p>
-<h3 id="1">課題1</h3>
-<p>サンプルではすでに各立方体の位置と速度が初期化されています。
-<code>display</code>関数のなかで、立方体の位置に速度を加えて更新し、移動させてください。
-プログラムの実行と同時に立方体がランダムな方向に動き始めればokです。</p>
-<p><img alt="" src="docs/exa.gif" /></p>
-<h2 id="_5">マウスクリックによる起爆</h2>
+<h2 id="_3">マウスクリックによる起爆</h2>
 <p>コールバック関数を定義し、クリックした瞬間に一か所にある立方体が爆発するようにします。
-具体的には、フラグとなる変数を用意し、クリックが検知されたときに値を書き換えることで立方体を動かすかどうかの判定をおこないます。</p>
-<h3 id="_6">マウスボタン関数の定義</h3>
+具体的には、フラグとなる変数を用意し、クリックが検知されたときに値を書き換えることで立方体を動かすかどうかの判定をおこなう関数を作ります。</p>
 <p>といっても処理が単純かつ覚えるしかない部分でもあるので簡単に流します。
 <code>bool click</code>というグローバル変数があるのでマウスボタンの動きを検出する関数<code>MouseButtonFunc</code>の中でこれを書き換えてください。</p>
 <p>[ main.cpp ]</p>
@@ -219,12 +210,18 @@ i番めの立方体のy座標(2番めの要素)を取り出すためには<code>
     }
 }
 </code></pre>
-<p>if文は、<strong>左ボタン</strong>が<strong>押された</strong>ときという条件です。</p>
+<p>if文の意味は、<strong>左ボタンが操作されている</strong> かつ <strong>ボタンが押されている</strong> ときという条件です。</p>
+<h2 id="_4">課題</h2>
+<h3 id="1">課題1</h3>
+<p>サンプルではすでに各立方体の位置と速度が初期化されています。
+<code>display</code>関数のなかで、立方体の位置に速度を加えて更新し、移動させてください。
+プログラムの実行と同時に立方体がランダムな方向に動き始めればokです。</p>
+<p><img alt="" src="images/exa.gif" /></p>
 <h3 id="2">課題2</h3>
 <p>変数<code>clicked</code>が最初は<code>false</code>, クリックされた後は<code>true</code>の値をとるようになりました。
 このフラグを用いてマウスボタンがクリックされたときに移動が始まるようにしてください。</p>
 <p>さらに、初期位置を原点にして爆発して見えるようにしてください。</p>
-<p><img alt="" src="docs/exp.gif" /></p>
+<p><img alt="" src="images/exp.gif" /></p>
 <h3 id="3">課題3</h3>
 <p>そのほか、マウスボタンを使って動きの制御をおこなってください。
 例えばクリックするたびに移動/停止を入れ替える、クリックすると位置を初期化するなど。</p>

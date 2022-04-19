@@ -76,6 +76,42 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">マウスやキーボードによる入力</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">プログラムの解説</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">キーボードに連動する関数</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">コールバック関数の登録</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">他のコールバック関数</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">方向キーで立方体を動かす</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_7">"押しっぱなし"の取得</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_8">方向キーでキャラクターを動かす</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#-">準備-ロボットの表示</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">進行方向の制御</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">歩行アニメーションの追加</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_11">課題</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1">課題1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2">課題2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3">課題3</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4">課題4</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -124,38 +160,9 @@
           <div role="main">
             <div class="section">
               
-                <p>この資料は、従来版の後半第1回 - キーボードやマウスによる入力 に対応します。
-<a href="https://github.com/trnciii/ciesample-input">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。</p>
-<h2 id="_1">目次</h2>
-<ul>
-<li><a href="#準備">準備</a></li>
-<li><a href="#プログラムの解説">プログラムの解説</a><ul>
-<li><a href="#キーボードに連動する関数">キーボードに連動する関数</a></li>
-<li><a href="#コールバック関数の登録">コールバック関数の登録</a></li>
-<li><a href="#他のコールバック関数">他のコールバック関数</a></li>
-</ul>
-</li>
-<li><a href="#方向キーで立方体を動かす">方向キーで立方体を動かす</a><ul>
-<li><a href="#プログラムの書き換え">プログラムの書き換え</a></li>
-<li><a href="#課題1">課題1</a></li>
-</ul>
-</li>
-<li><a href="#&quot;押しっぱなし&quot;の取得">"押しっぱなし"の取得</a><ul>
-<li><a href="#フラグによる制御">フラグによる制御</a></li>
-<li><a href="#課題2">課題2</a></li>
-</ul>
-</li>
-<li><a href="#方向キーでキャラクターを動かす">方向キーでキャラクターを動かす</a><ul>
-<li><a href="*準備-ロボットの表示">準備-ロボットの表示</a></li>
-<li><a href="*進行方向の制御">進行方向の制御</a></li>
-<li><a href="*歩行アニメーションの追加">歩行アニメーションの追加</a></li>
-<li><a href="*課題3">課題3</a></li>
-<li><a href="*課題4">課題4</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="_2">準備</h2>
-<p>ここのコードをダウンロード、解凍してください。sample.xcodeproj を開き実行すると立方体が表示されることを確認してください。
+                <h1 id="_1">キーボードやマウスによる入力</h1>
+<p>この資料は、従来版の後半第1回 - キーボードやマウスによる入力 に対応します。
+<a href="https://github.com/trnciii/ciesample-input">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。
 また、矢印キーを押すとコンソールに対応した文字が出力されることを確認してください。
 コンソールはXcodeウィンドウの右下にあります。</p>
 <table>
@@ -167,19 +174,19 @@
 </thead>
 <tbody>
 <tr>
-<td align="center"><img src="docs/cube.png" width="400"></td>
-<td align="center"><img src="docs/console.png" width="350"></td>
+<td align="center"><img src="images/cube.png" width="400"></td>
+<td align="center"><img src="images/console.png" width="350"></td>
 </tr>
 </tbody>
 </table>
-<h2 id="_3">プログラムの解説</h2>
+<h2 id="_2">プログラムの解説</h2>
 <p>今回からキーボードやマウスの動きなど、ユーザーによる入力を利用したプログラムを書きます。
 そのために<strong>コールバック関数</strong>という仕組みを利用します。
 これはGLFWのほうで検知した特定の動作に対して、登録した好きな関数を実行できるというものです。</p>
 <p>実際にキーボードにあわせて矢印を出力する部分がどのように書かれているか見ていきます。</p>
-<h3 id="_4">キーボードに連動する関数</h3>
+<h3 id="_3">キーボードに連動する関数</h3>
 <p>キーボードが押されたときに動作する関数として、<code>KeyFunc</code>を定義しました。
-関数の引数は<a href="https://www.glfw.org/docs/3.3/group__input.html#ga0192a232a41e4e82948217c8ba94fdfd">仕様</a>で決まっており、キーの種類や動作を表す変数として関数内で使うことができます。</p>
+関数の引数は<a href="https://www.glfw.org/images/3.3/group__input.html#ga0192a232a41e4e82948217c8ba94fdfd">仕様</a>で決まっており、キーの種類や動作を表す変数として関数内で使うことができます。</p>
 <pre><code class="language-cpp">void KeyFunc(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     // ↑
@@ -218,10 +225,10 @@
 文字の場合は文字コード、矢印など特殊なものはGLFWで用意された <code>GLFW_KEY_UP</code> などの値が入っています。</p>
 <p>キーが押されたことを判定するために、分岐のときに第四引数<code>int action</code> の値も同時に確認します。
 この変数には、押された瞬間に<code>GLFW_PRESS</code>、離された瞬間には<code>GLFW_RELEASE</code>がはいっています。</p>
-<h3 id="_5">コールバック関数の登録</h3>
+<h3 id="_4">コールバック関数の登録</h3>
 <p>プログラムの最初に、定義した関数<code>KeyFunc</code>をGLFWにわかるように登録します。
 これは <code>main</code>関数内の <code>glfwSetKeyCallback(window, KeyFunc);</code> という部分で行っています。</p>
-<h3 id="_6">他のコールバック関数</h3>
+<h3 id="_5">他のコールバック関数</h3>
 <p>キーボードの検出のほかにも以下のコールバック関数を用意しています。
 プログラムを読み、それぞれの引数と関数を登録している部分を確認してください。</p>
 <table>
@@ -255,9 +262,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_7">方向キーで立方体を動かす</h2>
-<p>入力された方向キーで立方体を移動させます。↑キーで上、↓キーで下に動くようにします。</p>
-<h3 id="_8">プログラムの書き換え</h3>
+<h2 id="_6">方向キーで立方体を動かす</h2>
+<p>サンプルプログラムを書き換え、入力された方向キーで立方体を移動させます。
+↑キーで上、↓キーで下に動くようにします。</p>
 <p>まず、位置を格納する大域変数を用意します。</p>
 <pre><code class="language-cpp">#include &quot;GLFW/glfw3.h&quot;
 #include &lt;math.h&gt;
@@ -299,14 +306,10 @@ void myinit(GLFWwindow** window);
 }
 </code></pre>
 <p>これで実行すると、矢印キーの上下に応じて立方体が移動します。</p>
-<h3 id="1">課題1</h3>
-<p>矢印キーの左右に応じて立方体が移動するようにしてください。
-後から使うので、左右の移動を保持する変数名は<code>pos_x</code> とすることを推奨します。</p>
-<h2 id="_9">"押しっぱなし"の取得</h2>
-<p>今までの流れで、矢印キーを押す事で立方体が動くようになりました。
+<h2 id="_7">"押しっぱなし"の取得</h2>
+<p>矢印キーを押す事で立方体が動くようになりました。
 ただ、動かし続けるためにはキーボードを連打する必要があります。
-ここでは、「押しっぱなし」の取得をしたいと思います。</p>
-<h3 id="_10">フラグによる制御</h3>
+ここでは、フラグを用いた制御を取り入れて「押しっぱなし」の取得をしたいと思います。</p>
 <p><code>KeyFunc</code>ではキーが押された/離された瞬間のみを検知することができますが、その後キーが押されたままであるかはわかりません。
 そのため、キーが押されているか否かの変数を用意して、これをもとに移動をおこないます。</p>
 <p>以下のように変数の用意と移動の書き換えをおこないます。
@@ -349,10 +352,7 @@ void display(int frame)
 }
 </code></pre>
 <p>最後に、<code>KeyFunc</code>の中で各方向のフラグを更新します。</p>
-<h3 id="2">課題2</h3>
-<p><code>KeyFunc</code>を書き換えて、矢印キーとフラグ変数<code>up, down, left, right</code>が連動するようにしてください。
-キーを押した瞬間に<code>true</code>, キーを離した瞬間に<code>false</code>を代入すればいいです。</p>
-<h2 id="_11">方向キーでキャラクターを動かす</h2>
+<h2 id="_8">方向キーでキャラクターを動かす</h2>
 <h3 id="-">準備-ロボットの表示</h3>
 <p>キャラクターを動かすことで、さまざまな制御に慣れましょう。
 かなり長いですが、立方体の描画を以下のロボットで置き換えます。</p>
@@ -508,8 +508,8 @@ void display(int frame)
 glPopMatrix();
 </code></pre>
 <p>ロボットが表示され、<code>pos_x, pos_z</code>によって全体の移動ができることを確認してください。</p>
-<p><img alt="" src="docs/robot.png" /></p>
-<h3 id="_12">進行方向の制御</h3>
+<p><img alt="" src="images/robot.png" /></p>
+<h3 id="_9">進行方向の制御</h3>
 <p>立方体のときには気になりませんでしたが、キャラクターが移動するときには進行方向を向いてもらう方が自然に感じられますので、キーで入力した方向に応じてロボットを回転させます。</p>
 <p>やることは移動と同じです。大域変数に方向を入れる変数<code>float dir</code> を用意し、キーのフラグを利用して値を決めます。
 回転は、ロボットの上のほうにある腰パーツでおこないます。<code>//全体の回転</code>となっている部分をコメントアウトして利用してください。</p>
@@ -556,8 +556,8 @@ void display(int frame)
     // ロボットの描画
 </code></pre>
 <p>これでロボットの向きを変えることができました。</p>
-<p><img alt="" src="docs/move.gif" /></p>
-<h3 id="_13">歩行アニメーションの追加</h3>
+<p><img alt="" src="images/move.gif" /></p>
+<h3 id="_10">歩行アニメーションの追加</h3>
 <p>さらに、移動しているときには歩いているようなアニメーションを加えてみましょう。
 とりあえず脚だけ振らせてみます。
 歩行の一周期を0\~360度として回転し続ける変数<code>phase</code> を用意し、いずれかの方向キーが押されているときに値を更新します。</p>
@@ -614,18 +614,21 @@ float phase = 0; // 追加
 <li><code>glRotated(-10*sin(phase*0.2), 1.0, 0.0, 0.0 );//左脛の回転*****</code></li>
 </ul>
 <p>完成するとこのようになります。</p>
-<p><img alt="" src="docs/walk.gif" /></p>
+<p><img alt="" src="images/walk.gif" /></p>
+<h2 id="_11">課題</h2>
+<h3 id="1">課題1</h3>
+<p>矢印キーで左右を入力し、立方体が移動するようにしてください。</p>
+<h3 id="2">課題2</h3>
+<p><code>KeyFunc</code>を書き換えて、矢印キーとフラグ変数<code>up, down, left, right</code>が連動するようにしてください。
+キーを押した瞬間に<code>true</code>, キーを離した瞬間に<code>false</code>を代入すればいいです。</p>
 <h3 id="3">課題3</h3>
-<p>以下の問題点を解決するよう移動の制御を改善してください。</p>
-<p><strong>問題点</strong> 現在、二つのキーを同時に押すと斜めに移動するころができるが、ロボットの向きは四方向のいずれかとなってしまうので、複数のキーを押してもロボットが進行方向を向くようにしたい。</p>
+<p>[歩行アニメーションの追加] で制作したプログラムでは、二つのキーを同時に押した場合に、ロボットは斜めに移動するが向きは四方向のいずれかとなってしまうという問題点があります。
+これを解決し、ロボットが常に進行方向を向くようにプログラムを修正してください。</p>
 <h3 id="4">課題4</h3>
 <p>立方体または適当なキャラクターをひとつ、マウスカーソルを追いかけるように動かしてください。</p>
-<p><img alt="" src="docs/follow.gif" /></p>
+<p><img alt="" src="images/follow.gif" /></p>
 <p>マウスカーソルの位置は<code>MousePosFunc</code>の引数である<code>x, y</code>から取り出して利用します。
 斜めからの視点では、カーソルの位置とロボットの移動する平面の対応を厳密に考えるのは難しいので、そのあたりは適当でいいです。</p>
-<hr />
-<p>課題のほかにも、アニメーションや移動方法を変更してみてください。
-また、作品をslack のほうに共有してくれると嬉しいです。</p>
               
             </div>
           </div>

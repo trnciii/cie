@@ -173,20 +173,20 @@
 <p>インストールしたライブラリの動作確認のため、最も簡単なプログラムを書いてみます。
 ここから下は参考サイトをみたほうがはやいという人もいると思います。
 また面倒な人は、<a href="https://github.com/trnciii/ciesample-setup">ここ</a>からプロジェクトをダウンロードして<code>sample.xcodeproj</code>を開き、実行できるか確認するだけでもいいです。<br>
-<img src="docs/im_dl.png" width="300"></p>
+<img src="images/im_dl.png" width="300"></p>
 <p>自分でやってみたい人は、まず xcode で新しいプロジェクトを作成します<br>
-<img src="docs/im_new1.png" width="500"><br>
+<img src="images/im_new1.png" width="500"><br>
 ↓<br>
-<img src="docs/im_new2.png" width="500"></p>
+<img src="images/im_new2.png" width="500"></p>
 <h3 id="_4">ライブラリ追加</h3>
 <ul>
 <li>Build phases -&gt; Link Binary with Libraries から <code>OpenGL.framework</code> を選択</li>
 <li>同じリストに <code>/usr/local/Cellar/glfw/3.3/lib</code> にある　<code>libglfw.3.3.dylib</code>　をドロップして追加
-<img alt="" src="docs/im_link.png" /></li>
+<img alt="" src="images/im_link.png" /></li>
 </ul>
 <h3 id="_5">ヘッダ追加</h3>
 <p>Build settings -&gt; Header Search Path の項目に<code>/usr/local/Cellar/glfw/3.3.2/include</code>を追加.<br>リストの右側をrecursive に設定<br>
-<img alt="" src="docs/im_header.png" /></p>
+<img alt="" src="images/im_header.png" /></p>
 <h3 id="_6">コードを書いてウィンドウを出す</h3>
 <p>main.cpp に以下のソースをコピペしてビルドします (左上の再生ボタン)<br>
 <a href="https://www.glfw.org/documentation.html">https://www.glfw.org/documentation.html</a><br></p>
@@ -229,7 +229,7 @@ int main(void)
 }
 </code></pre>
 <p>いろいろ警告が出るかもしれませんが、しばらく待ってこのような "Hello World" という真っ黒いウィンドウが出ればOKです。<br><br>
-<img alt="" src="docs/im_window.png" /></p>
+<img alt="" src="images/im_window.png" /></p>
 <h2 id="faq">FAQ</h2>
 <h3 id="q-glfwglfw3h-file-not-found">Q. GLFW/glfw3.h file not found とエラーが出る</h3>
 <p>A. フォルダが実在するか確認, バージョンの数字などは自分の環境にあわせる</p>
@@ -239,11 +239,11 @@ Xcodeの設定で <em>signing/capabilities</em> のところに <em>Hardened Run
 <ul>
 <li>権限がきつくない状態</li>
 </ul>
-<p><img src="docs/sig-cap.png" width="750"></p>
+<p><img src="images/sig-cap.png" width="750"></p>
 <ul>
 <li>もしこの項目があれば[x]を押して削除</li>
 </ul>
-<p><img src="docs/runtime.png" width="750"></p>
+<p><img src="images/runtime.png" width="750"></p>
               
             </div>
           </div>

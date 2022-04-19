@@ -64,6 +64,32 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">2D 相対移動</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">プログラムの説明</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">描画内容</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">図形のタイプ</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">再描画</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">ディスプレイリスト</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_7">移動 回転 拡大縮小</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_8">行列の初期化</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_9">課題</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1">課題1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2">課題2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3">課題3</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -124,29 +150,13 @@
           <div role="main">
             <div class="section">
               
-                <p>この章は 第2回 相対移動 の内容に対応しています。
-<a href="https://github.com/trnciii/ciesample-surface">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。</p>
-<h2 id="_1">目次</h2>
-<ul>
-<li><a href="#準備">準備</a></li>
-<li><a href="#プログラムの説明">プログラムの説明</a><ul>
-<li><a href="#描画内容">描画内容</a></li>
-<li><a href="#図形のタイプ">図形のタイプ</a></li>
-<li><a href="#再描画">再描画</a></li>
-</ul>
-</li>
-<li><a href="#課題1">課題1</a></li>
-<li><a href="#ディスプレイリスト">ディスプレイリスト</a></li>
-<li><a href="#移動-回転-拡大縮小">移動・回転・拡大縮小</a></li>
-<li><a href="#課題2">課題2</a></li>
-<li><a href="#行列の初期化">行列の初期化</a></li>
-<li><a href="#課題3">課題3</a></li>
-</ul>
-<h2 id="_2">準備</h2>
-<p>ここのコードをダウンロード、解凍してください。sample.xcodeproj を開き実行すると、中央に白い四角形が現れるはずです。  </p>
-<h2 id="_3">プログラムの説明</h2>
-<p>初期化処理については<a href="https://github.com/trnciii/cge2020mac/tree/1_lines">直線の回</a>を参考にしてください。</p>
-<h3 id="_4">描画内容</h3>
+                <h1 id="_1">相対移動</h1>
+<p>この章は 第2回 相対移動 の内容に対応しています。
+<a href="https://github.com/trnciii/ciesample-surface">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。
+正しく実行できれば、ウィンドウ中央に白い四角形が描画されます。</p>
+<h2 id="_2">プログラムの説明</h2>
+<p>初期化処理については<a href="../lines/">直線の回</a>を参考にしてください。</p>
+<h3 id="_3">描画内容</h3>
 <p>次のdisplay関数では、四角形を描いています。</p>
 <pre><code class="language-cpp">void display(void)
 {
@@ -167,7 +177,7 @@
 <p><code>glColor3f();</code>ではこれから描く頂点の色を設定しています。括弧内の値は左から赤、緑、青の強さで、それぞれ0.0～1.0 の値をとります。ここでは全ての値が1 ですので、色は白になります。</p>
 <p><code>glVertex2f();</code> は頂点を設定していて、括弧内の数字は点の座標です。
 この場合、４つの点が定義されています。 そして、これらをどのようにしてつないでいくかというのが<code>glBegin();</code>の括弧内の文字列で示されています。 この場合は<code>GL_POLYGON</code>となっていますから、４つの頂点で一枚のポリゴン（面）が作られています。 そして、<code>glEnd();</code>で定義を終わります。</p>
-<h3 id="_5">図形のタイプ</h3>
+<h3 id="_4">図形のタイプ</h3>
 <p><code>glBegin();</code> の括弧内の<code>GL_POLYGON</code> 部分を書き換えることにより、図形のタイプを指定することができます。</p>
 <table>
 <thead>
@@ -211,7 +221,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_6">再描画</h3>
+<h3 id="_5">再描画</h3>
 <p>次の関数は「再描画」のための関数です。ここで視界の設定をしています。以下で説明していない部分に付いては、後の章で説明します。</p>
 <pre><code class="language-cpp">void reshape(GLFWwindow* window, int w, int h)
 {
@@ -224,12 +234,9 @@
 <p><code>glOrtho();</code>では視界の設定をしています。
 括弧内左から、ウィンドウ左端、右端、上、下、そして手前、奥の座標を設定し、この範囲内にある物体を描画するようにしています。図にすると下のようになります。<br>
 <code>glOrtho(left, right, bottom, top, near, far);</code>のとき</p>
-<p><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/surface/viewport1.jpg" /></p>
+<p><img alt="" src="images/viewport1.jpg" /></p>
 <p>この「視野の範囲」は３次元であり、視体積と呼びます。</p>
-<h2 id="1">課題1</h2>
-<p>あなたのイニシャルを、画面上に描いてください。"MP1”だとイメージとしては下のようなものになります。</p>
-<p><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/surface/MP1.gif" /></p>
-<h2 id="_7">ディスプレイリスト</h2>
+<h2 id="_6">ディスプレイリスト</h2>
 <p>ディスプレイリストを使うと、図形を描く、などの命令を保存し、それを簡単に呼び出したりすることができます。つまり、一度定義した物体を「使い回す」事ができます。
 では まず、プログラムの頭部分に次の黒文字の行を書き加えてください。</p>
 <pre><code class="language-cpp">#define GL_SILENCE_DEPRECATION
@@ -281,7 +288,7 @@
 </code></pre>
 <p>リストで定義されたオブジェクトの呼び出しには、 <code>glCallList()</code> を使います。括弧内（引数）はオブジェクトの名前（整数）が入ります。ここではSQUARE（=1）という名前のオブジェクト＝先ほどリストで定義したオブジェクトを呼び出しています。
 実行してみても見かけは変わりません。でも、複雑なオブジェクト（ここでは単なる正方形ですが・・・）を１行の記述で呼び出すことができます。</p>
-<h2 id="_8">移動 回転 拡大縮小</h2>
+<h2 id="_7">移動 回転 拡大縮小</h2>
 <p>物体を移動・回転・拡大縮小するためには、以下のような関数を利用します。</p>
 <table>
 <thead>
@@ -320,17 +327,24 @@ glCallList(SQUARE); // 定義されているオブジェクトを呼び出し
 <p>このとき、変換はオブジェクトの記述に近い側からなされるということに気をつけてください。
 上の例では、移動T後、回転Rを行っていることになります。
 イメージとしては下の図のようになります。</p>
-<p><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/surface/matrix.png" /></p>
-<h2 id="2">課題2</h2>
-<p>次のような画面を作ってみて下さい。</p>
-<p><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/1_2_var0.gif" /></p>
-<h2 id="_9">行列の初期化</h2>
-<p>このようにどんどん変換が積み重なっていく仕組みでは、一度書いた変換がそのあと全ての変換に影響するので直感的に操作しにくい場合があります。これを解消するため、必要に応じて行列を初期化することができます。</p>
+<p><img alt="" src="images/matrix.png" /></p>
+<h2 id="_8">行列の初期化</h2>
+<p>いま学んだような、どんどん変換が積み重なっていく仕組みでは、一度書いた変換がそのあと全ての変換に影響するので直感的に操作しにくい場合があります。
+これを解消するため、必要に応じて行列を初期化することができます。</p>
 <p><code>glLoadIdentity()</code>を使うことで行列を初期化し、それまで使われた変換行列が、この関数以降には全く影響しなくなります。</p>
-<h2 id="3">課題3</h2>
+<h2 id="_9">課題</h2>
+<h3 id="1">課題1</h3>
+<p>あなたのイニシャルを、画面上に描いてください。"MP1”だとイメージとしては下のようなものになります。</p>
+<p><img alt="" src="images/MP1.gif" /></p>
+<h3 id="2">課題2</h3>
 <p>次のような画面を作ってみて下さい。</p>
-<p><img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/ogl1_4.gif" width="300"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/square2.gif" width="300"><br></p>
-<p><img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/1_2_var1.gif" width="300"> <img src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cie2022/img/surface/1_2_var2.gif" width="300"></p>
+<p><img alt="" src="images/1_2_var0.gif" /></p>
+<h3 id="3">課題3</h3>
+<p>次のような画面を作ってみて下さい。</p>
+<p><img src="./images/ogl1_4.gif" width="300">
+<img src="./images/square2.gif" width="300"></p>
+<p><img src="./images/1_2_var1.gif" width="300">
+<img src="./images/1_2_var2.gif" width="300"></p>
               
             </div>
           </div>

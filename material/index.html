@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Index - コンテンツインタラクション演習</title>
+  <title>質感・マテリアル・ライティング - コンテンツインタラクション演習</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Index";
+    var mkdocs_page_name = "\u8cea\u611f\u30fb\u30de\u30c6\u30ea\u30a2\u30eb\u30fb\u30e9\u30a4\u30c6\u30a3\u30f3\u30b0";
     var mkdocs_page_input_path = "material/README.md";
     var mkdocs_page_url = null;
   </script>
@@ -110,7 +110,7 @@
     
       
     
-    <li>Index</li>
+    <li>質感・マテリアル・ライティング</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -122,30 +122,12 @@
           <div role="main">
             <div class="section">
               
-                <p>この資料は、従来版の第5回 - 質感・マテリアル・ライティング に対応します。
-<a href="https://github.com/trnciii/ciesample-material">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。</p>
-<h2 id="_1">目次</h2>
-<ul>
-<li><a href="#準備">準備</a></li>
-<li><a href="#照明を当てよう">照明を当てよう</a><ul>
-<li><a href="#照明の位置と色">照明の位置と色</a></li>
-<li><a href="#複数の光源をつかう">複数の光源をつかう</a></li>
-</ul>
-</li>
-<li><a href="#材質の設定">材質の設定</a><ul>
-<li><a href="#法線の話">法線の話</a></li>
-<li><a href="#色と質感">色と質感</a></li>
-</ul>
-</li>
-<li><a href="#課題1">課題1</a></li>
-<li><a href="#課題2">課題2</a></li>
-<li><a href="#課題3">課題3</a></li>
-<li><a href="#オブジェクトいろいろ">オブジェクトいろいろ</a></li>
-</ul>
-<h2 id="_2">準備</h2>
-<p>ここのコードをダウンロード、解凍してください。sample.xcodeproj を開き実行すると図のような立方体が表示されることを確認してください。</p>
-<p><img src="docs/box_no_light.png" width="300"></p>
-<h2 id="_3">照明を当てよう</h2>
+                <h1 id="_1">質感・マテリアル・ライティング</h1>
+<p>この資料は、従来版の第5回 - 質感・マテリアル・ライティング に対応します。
+<a href="https://github.com/trnciii/ciesample-material">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。
+また、図のような立方体が表示されることを確認してください。</p>
+<p><img src="./images/box_no_light.png" width="300"></p>
+<h2 id="_2">照明を当てよう</h2>
 <p>現在はポリゴンごとに一定の色で描画されているだけですが、照明を当てることにより陰影を表現するようにプログラムを書き換えていきます。</p>
 <p>[ main.cpp - myinit関数 ]</p>
 <pre><code class="language-cpp">void myinit(GLFWwindow** window)
@@ -167,11 +149,11 @@
 }
 </code></pre>
 <p>これで実行してみると、手前から照明の当たった立方体が表示されます。材質の設定をしていないため立方体の色が白くなってしまいましたが、これは後でやります。</p>
-<p><img src="docs/box_light.png" width="300"></p>
-<h3 id="_4">照明の位置と色</h3>
+<p><img src="./images/box_light.png" width="300"></p>
+<h3 id="_3">照明の位置と色</h3>
 <p>追加した光源の位置や色を設定することができます。
 例として、(白い)立方体の左上から、緑の光源で照らすように<code>display</code>関数を次のように書き換えます。</p>
-<p><img src="docs/light_set.png" width="300"></p>
+<p><img src="./images/light_set.png" width="300"></p>
 <pre><code class="language-cpp">void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // 色と深度の初期化
@@ -198,7 +180,7 @@
 <code>green</code>は色を記録するために作った変数で、左からR, G, B, alpha 値です。</p>
 <p>そして、下のほうで<code>glLightfv</code>関数を用いてこれらの変数を光源に設定していきます。<br>
 引数は <code>glLightfv(光源名, 設定項目, 位置や色の値)</code> です。</p>
-<h3 id="_5">複数の光源をつかう</h3>
+<h3 id="_4">複数の光源をつかう</h3>
 <p>複数の光源を使うには <code>myinit</code> のほうで新たな光源を有効にし、設定を行います。</p>
 <p>[ main.cpp - myinit 関数 ]</p>
 <pre><code class="language-cpp">glEnable( GL_LIGHTING );
@@ -219,10 +201,10 @@ glLightfv( GL_LIGHT1, GL_POSITION, lightpos1 );
 glLightfv( GL_LIGHT1, GL_DIFFUSE, white );
 </code></pre>
 <p>左上の緑の光源に加えて、右側に白い光源を配置しました。<br>
-<img src="docs/lights.png" width="300"></p>
-<h2 id="_6">材質の設定</h2>
+<img src="./images/lights.png" width="300"></p>
+<h2 id="_5">材質の設定</h2>
 <p>照明の計算を有効にしたことでもともと設定していたポリゴンの色が見えなくなってしまったので、新たに材質の設定をおこなっていきます。OpenGL における照明は、光源の位置と面の向き(法線)、面の色などをもとに計算されるので、これらを設定していきます。</p>
-<h3 id="_7">法線の話</h3>
+<h3 id="_6">法線の話</h3>
 <p>法線とは物体面の向きを表すベクトルのことで、光源からどれくらいの光が当たるかという陰影の計算に使われます。立方体の法線はmakebox の中に書いてあります。</p>
 <p>[ box.cpp - makebox 関数内 ]</p>
 <pre><code class="language-cpp">//前面描画・黄
@@ -265,9 +247,9 @@ glEnd();
 }
 </code></pre>
 <p>球体のパラメータは<code>gluSphere(オブジェクト, 半径 , 経度方向の解像度, 緯度方向の解像度)</code>となっています。実行すると、球の面の向きによって陰影がついていることが確認できます。</p>
-<p><img src="docs/sphere.png" width="300"></p>
+<p><img src="./images/sphere.png" width="300"></p>
 <p>ほかに表示できる形状については、このページの一番下<a href="#オブジェクトいろいろ">オブジェクトいろいろ</a>で紹介しています。</p>
-<h3 id="_8">色と質感</h3>
+<h3 id="_7">色と質感</h3>
 <p>照明計算を有効にするときは、物体の材質を<code>glMaterialfv</code>関数で設定します。</p>
 <pre><code class="language-cpp">void display()
 {
@@ -330,26 +312,27 @@ glEnd();
 </tbody>
 </table>
 <p>例えば、拡散反射を赤、鏡面反射を白、鋭い鏡面反射を設定するには以下のように書きます。</p>
-<p><img src="docs/sphere_mtl.png" width="300"></p>
+<p><img src="./images/sphere_mtl.png" width="300"></p>
 <pre><code class="language-cpp">glMaterialfv( GL_FRONT_AND_BACK, GL_DIFFUSE, red ); //拡散反射
 glMaterialfv( GL_FRONT_AND_BACK, GL_SPECULAR, white); // 鏡面反射
 glMaterialf( GL_FRONT_AND_BACK, GL_SHININESS, 120 ); // 鏡面反射の鋭さ
 </code></pre>
 <p>ちなみに、色のalpha値を小さくすると半透明を表現できます。</p>
 <p><code>float red[] = { 0.8f, 0.2f, 0.2f, 0.5f };</code></p>
-<p><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/transbox.gif" /></p>
-<h2 id="1">課題1</h2>
+<p><img alt="" src="images/transbox.gif" /></p>
+<h2 id="_8">課題</h2>
+<h3 id="1">課題1</h3>
 <p>下の画のように材質(色)を設定して下さい。</p>
-<p><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/colorcube2.gif" />
-<img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/colorcube1.gif" /></p>
+<p><img alt="" src="images/colorcube2.gif" />
+<img alt="" src="images/colorcube1.gif" /></p>
 <p>立方体の面や頂点ごとに材質を設定するためには、box.cpp にある <code>makebox</code>関数を書き換えてください。</p>
-<h2 id="2">課題2</h2>
+<h3 id="2">課題2</h3>
 <p>鏡面反射を設定して、以下のような画面を作ってください。</p>
-<p><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/mat_boxes.jpg" /></p>
-<h2 id="3">課題3</h2>
+<p><img alt="" src="images/mat_boxes.jpg" /></p>
+<h3 id="3">課題3</h3>
 <p>前回までに自分の作ったロボットに質感設定をしてください。</p>
 <h2 id="_9">オブジェクトいろいろ</h2>
-<p>途中で球体を表示しましたが、ほかにも基本的なオブジェクトが用意されています。</p>
+<p>この章では球体を表示しましたが、ほかにも基本的なオブジェクトが用意されています。</p>
 <table>
 <thead>
 <tr>
@@ -359,19 +342,19 @@ glMaterialf( GL_FRONT_AND_BACK, GL_SHININESS, 120 ); // 鏡面反射の鋭さ
 </thead>
 <tbody>
 <tr>
-<td align="center"><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/solidsphere.gif" /><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wiresphere.gif" /></td>
+<td align="center"><img alt="" src="images/solidsphere.gif" /><img alt="" src="images/wiresphere.gif" /></td>
 <td align="left">gluSphere(オブジェクト, 半径, 経度方向の分割数, 緯度方向の分割数)</td>
 </tr>
 <tr>
-<td align="center"><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/solidcylind.gif" /><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wirecylind.gif" /></td>
+<td align="center"><img alt="" src="images/solidcylind.gif" /><img alt="" src="images/wirecylind.gif" /></td>
 <td align="left">gluCylinder(オブジェクト, 底面の半径, 上面の半径, 高さ, 円周方向の分割数, 縦の分割数)</td>
 </tr>
 <tr>
-<td align="center"><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/soliddisk.gif" /><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wiredisk.gif" /></td>
+<td align="center"><img alt="" src="images/soliddisk.gif" /><img alt="" src="images/wiredisk.gif" /></td>
 <td align="left">gluDisk(オブジェクト, 内の半径, 外の半径, 円周の分割数, 半径の分割数)</td>
 </tr>
 <tr>
-<td align="center"><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/solidpartial.gif" /><img alt="" src="http://www.design.kyushu-u.ac.jp/~rtsuruno/lectures/cge2020/img/material/wirepartial.gif" /></td>
+<td align="center"><img alt="" src="images/solidpartial.gif" /><img alt="" src="images/wirepartial.gif" /></td>
 <td align="left">gluPartialDisk(オブジェクト, 内の半径, 外の半径, 円周の分割数, 半径の分割数, 開始角度, 扇の角度)</td>
 </tr>
 </tbody>

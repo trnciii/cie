@@ -88,6 +88,18 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">軌跡を用いたインタラクション</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">サンプルプログラムの解説</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">直方体で軌跡をつくる</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">寿命による管理</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">直方体の再利用</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">課題</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -124,28 +136,13 @@
           <div role="main">
             <div class="section">
               
-                <p>この資料は、従来版の後半第4回 - 軌跡を用いたインタラクション に対応します。
+                <h1 id="_1">軌跡を用いたインタラクション</h1>
+<p>この資料は、従来版の後半第4回 - 軌跡を用いたインタラクション に対応します。
 <a href="https://github.com/trnciii/ciesample-trace">このリポジトリ</a>からファイルをダウンロードし、実行できるかを確認してください。
-うまくいけばマウスカーソルに追従するステッキとその軌跡を描くことができます。</p>
-<p><img alt="" src="docs/tiser.gif" /> </p>
-<h2 id="_1">目次</h2>
-<ul>
-<li><a href="#準備">準備</a><ul>
-<li><a href="#サンプルプログラムの解説">サンプルプログラムの解説</a></li>
-</ul>
-</li>
-<li><a href="#直方体で軌跡をつくる">直方体で軌跡をつくる</a><ul>
-<li><a href="#寿命による管理">寿命による管理</a></li>
-<li><a href="#直方体の再利用">直方体の再利用</a></li>
-</ul>
-</li>
-<li><a href="#課題">課題</a></li>
-</ul>
-<h2 id="_2">準備</h2>
-<p>ダウンロードしたプログラムは、ステッキがカーソルについて動くというものです。
-これに軌跡を追加していきます。</p>
-<p>まず、サンプルの内容を説明します。</p>
-<h3 id="_3">サンプルプログラムの解説</h3>
+はじめの状態では、ステッキがカーソルについて動くというプログラムになっています。</p>
+<p>これに軌跡を描くようにして、以下のようなプログラムを作ります。</p>
+<p><img alt="" src="images/tiser.gif" /></p>
+<h2 id="_2">サンプルプログラムの解説</h2>
 <p>今回は平行投影での描画を用い、xy座標上での動きのみ考慮します。(<code>reshape</code>を確認)</p>
 <p>ステッキの座標をグローバルに用意しておき、コールバック関数内で値の更新をしています。</p>
 <pre><code class="language-cpp">// 棒のx, y 座標
@@ -177,8 +174,8 @@ void MousePosFunc(GLFWwindow* window, double x, double y)
 </thead>
 <tbody>
 <tr>
-<td align="center"><img alt="" src="docs/co_screen.png" /></td>
-<td align="center"><img alt="" src="docs/co_w.png" /></td>
+<td align="center"><img alt="" src="images/co_screen.png" /></td>
+<td align="center"><img alt="" src="images/co_w.png" /></td>
 </tr>
 </tbody>
 </table>
@@ -202,14 +199,14 @@ void MousePosFunc(GLFWwindow* window, double x, double y)
     glPopMatrix();
 }
 </code></pre>
-<h2 id="_4">直方体で軌跡をつくる</h2>
+<h2 id="_3">直方体で軌跡をつくる</h2>
 <p>軌跡をたくさん(256個)の直方体を並べてつくります。
 ただし、軌跡の長さがかわるので常に直方体の数が256であるとは限りません。
 全体のうち何個かの直方体のみを描画できるようなプログラムが必要になります。</p>
 <p>これは、各直方体を描画するかを記録する配列を用いて実装します。
 <code>int cube_life[256]</code>　という配列がグローバルにあります。
 マウスカーソルがうごくたびにこれに寿命をあらわす値をいれていき、寿命が残っている場合に描画するというプログラムに書き換えます。</p>
-<h3 id="_5">寿命による管理</h3>
+<h3 id="_4">寿命による管理</h3>
 <p>マウスカーソルが動くたびに呼ばれるコールバック関数のなかで、寿命が0であるの直方体をひとつ選び、<code>MAX_LIFE</code>の寿命を与えるようにします。
 はじめて<code>cube_life[i] == 0</code>を満たしたとき<code>break</code>するので、寿命が与えられる直方体は<code>MousePosFunc</code>の実行につき一つです。</p>
 <pre><code class="language-cpp">void MousePosFunc(GLFWwindow* window, double x, double y)
@@ -254,7 +251,7 @@ void MousePosFunc(GLFWwindow* window, double x, double y)
 </code></pre>
 <p>以上で軌跡が出るようになりましたが、ある程度の長さで切れてしまいます。
 軌跡を描き続けるために、古いものから直方体を再利用するようにします。</p>
-<h3 id="_6">直方体の再利用</h3>
+<h3 id="_5">直方体の再利用</h3>
 <p>それぞれの直方体の寿命をフレーム毎に減らしていきます。
 寿命が0になったものは寿命が与えられる対象となり、再利用されます。</p>
 <p>ついでに、寿命に応じて線を細くします。</p>
@@ -283,7 +280,7 @@ void MousePosFunc(GLFWwindow* window, double x, double y)
 }
 </code></pre>
 <p>寿命を更新することで軌跡をずっと描けるようになりました。</p>
-<h2 id="_7">課題</h2>
+<h2 id="_6">課題</h2>
 <p><code>cube_life</code>を使った処理を追加/変更し、軌跡に変化をつけてください。
 色や太さを変える、軌跡の長さを変える、寿命の減りかたをかえてイージングを変えるなど。</p>
               

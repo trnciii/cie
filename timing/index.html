@@ -84,6 +84,42 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">タイミングアクション</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">プログラム解説</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">頭の投下</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">考えかた</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">実装</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">頭と胴体の交差判定</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">考え方</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">実装</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_9">画像の書き出し</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">画像を受け取る配列の用意</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_11">画面のキャプチャ</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">画像の保存</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_13">課題</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1">課題1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2">課題2</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -124,37 +160,20 @@
           <div role="main">
             <div class="section">
               
-                <p>この資料は、従来版の後半第3回 -   タイミングアクションの制作 に対応します。
-<a href="https://github.com/trnciii/ciesample-timing">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開き、実行できるか確認してください。</p>
-<p>この章ではロボット工場でロボットの頭を取り付けるという簡単なゲームを作成します。 ここではタイミング要素をインタラクションに取り入れ、キーを押すとロボットの頭が落ちるようにします。 頭が体の上に乗るとロボット製作成功というルールにします。</p>
-<p><img alt="" src="docs/tiser.gif" /></p>
-<p>また、最後には簡単にですが画像を書き出す方法を紹介します。</p>
-<h2 id="_1">目次</h2>
-<ul>
-<li><a href="#準備">準備</a><ul>
-<li><a href="#プログラム解説">プログラム解説</a></li>
-</ul>
-</li>
-<li><a href="#頭の投下">頭の投下</a></li>
-<li><a href="#頭と胴体の交差判定">頭と胴体の交差判定</a><ul>
-<li><a href="#課題1">課題1</a></li>
-<li><a href="#課題2">課題2</a></li>
-</ul>
-</li>
-<li><a href="#画像の書き出し">画像の書き出し</a><ul>
-<li><a href="#すごく余裕がある人へ">すごく余裕がある人へ</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="_2">準備</h2>
-<p>ダウンロードした状態のプログラムは、右から胴体が10個流れてくるというものです。
+                <h1 id="_1">タイミングアクションの制作</h1>
+<p>この資料は、従来版の後半第3回 -   タイミングアクションの制作 に対応します。
+<a href="https://github.com/trnciii/ciesample-timing">このリポジトリ</a>からファイルをダウンロードしたら<code>sample.xcodeproj</code> を開いてください。
+ダウンロードした状態のプログラムは、右から胴体が10個流れてくるというものです。</p>
+<p>この章ではロボット工場でロボットの頭を取り付けるという簡単なゲームを作成します。 ここではタイミング要素をインタラクションに取り入れ、キーを押すとロボットの頭が落ちるようにします。 頭が体の上に乗るとロボット製作成功というルールにします。
 今回は以下の順でプログラムを完成させていきます。</p>
 <ol>
 <li>キーボード操作による頭の投下</li>
 <li>胴体との交差判定と動きのコントロール</li>
 </ol>
-<h3 id="_3">プログラム解説</h3>
-<p>今回使うロボットはすでに<a href="https://github.com/trnciii/cge2020mac/tree/2_surface#ディスプレイリスト">ディスプレイリスト</a>として定義してあり、<code>glCallList( ROBO_BODY )</code>, <code>glCallList( ROBO_HEAD )</code>とすることでそれぞれロボットの体と頭をよびだすことができます。</p>
+<p>また、最後に画像を書き出す方法も紹介します。</p>
+<p><img alt="" src="images/tiser.gif" /></p>
+<h3 id="_2">プログラム解説</h3>
+<p>今回使うロボットはすでに<a href="../surface/#ディスプレイリスト">ディスプレイリスト</a>として定義してあり、<code>glCallList( ROBO_BODY )</code>, <code>glCallList( ROBO_HEAD )</code>とすることでそれぞれロボットの体と頭をよびだすことができます。</p>
 <p>動きをコントロールするための変数として以下がグローバルに定義されています。</p>
 <pre><code class="language-cpp">// 各ロボットの体のx座標
 double body_pos_x[MAX_ROBO];
@@ -202,12 +221,12 @@ double head_pos_y[MAX_ROBO];
 // ...
 </code></pre>
 <p>以上が配布プログラムの要点です。</p>
-<h2 id="_4">頭の投下</h2>
+<h2 id="_3">頭の投下</h2>
 <p>適当なキーを押したら頭が落下するようにします。以下、"↓"を押すことに決めて説明をします。</p>
-<h3 id="_5">考えかた</h3>
+<h3 id="_4">考えかた</h3>
 <p>それぞれの頭部はキーを押すごとに一つづつ落下していきます。
 いま何個の頭まで落下しているか数えておき、その範囲だけ動かすようにします。</p>
-<h3 id="_6">実装</h3>
+<h3 id="_5">実装</h3>
 <p>グローバル変数として以下のように<code>used = 0</code>を追加してください。</p>
 <pre><code class="language-cpp">//
 // ロボットの座標などの配列
@@ -243,14 +262,14 @@ int used = 0;
         // ...
 </code></pre>
 <p>以上で、全部で10個ある頭が一個ずつ落下していくという処理ができました。</p>
-<h2 id="_7">頭と胴体の交差判定</h2>
+<h2 id="_6">頭と胴体の交差判定</h2>
 <p>落下する頭が胴体に当たると合体するようにします。
 交差判定と、その結果による動きの切り替えを実装します。
 動きの切り替えは課題とします。</p>
-<h3 id="_8">考え方</h3>
+<h3 id="_7">考え方</h3>
 <p>頭がいずれかの胴体と交差したとき、落下をやめて左方向に動くようにします。
 それぞれの頭が交差したかの値を記録する配列を用意し、交差判定とそれをもとにした動きの切り替えをおこないます。</p>
-<h3 id="_9">実装</h3>
+<h3 id="_8">実装</h3>
 <p>まず頭が胴体に当たったかのフラグとなるグローバル変数を用意し、初期化します。</p>
 <pre><code class="language-cpp">//
 // ロボットの座標などの配列
@@ -314,24 +333,10 @@ void myinit(GLFWwindow** window)
 </code></pre>
 <p>これで、各頭が胴体と合体したかどうかの配列<code>hit</code>が得られました。
 この結果を利用して実際に頭が胴体と一緒に動くようにしてください。</p>
-<h3 id="1">課題1</h3>
-<p>各頭部の更新処理 (上のコード参照) を書き換えて最初に示したようなゲームを完成させてください。
-以下の条件を想定しますが、成り立っていれば数値を変えてもいいです。</p>
-<ul>
-<li>胴体に当たった頭部がその胴体と一緒に動くようにしてください。</li>
-<li>胴体はx方向に -0.2 の速度で動いています。</li>
-<li>首の高さは y = -6 です</li>
-</ul>
-<h3 id="2">課題2</h3>
-<p>以下のことをおこなってください。</p>
-<ul>
-<li>見た目の面白さのため、落下の仕方や左右の動きを変更してください。</li>
-<li>ゲーム性を高めるため、点数の計算やゲームオーバー判定、難易度の調整などをおこなってください。</li>
-</ul>
-<h2 id="_10">画像の書き出し</h2>
+<h2 id="_9">画像の書き出し</h2>
 <p>まえに質問してきた人がいたので、OpenGLで描画している画面を画像として書き出す方法を紹介します。
-public domain で公開されている<a href="https://github.com/nothings/stb">stb</a>というライブラリに含まれる、<a href="https://github.com/nothings/stb/blob/master/stb_image_write.h">stb_image_write.h</a>というヘッダファイルを使います。</p>
-<p>といってもこの部分は配布したプログラムにすでに書かれています。スペースを押すと画面全体をキャプチャします。</p>
+public domain で公開されている<a href="https://github.com/nothings/stb">stb</a>というライブラリに含まれる、<a href="https://github.com/nothings/stb/blob/master/stb_image_write.h">stb_image_write.h</a>というヘッダファイルを使います。（ヘッダファイルは既に配布したプログラムにすでに含めています。）
+次のコードで、スペースを押すと画面全体をキャプチャできます。</p>
 <pre><code class="language-cpp">void KeyFunc(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     // ...
@@ -359,22 +364,37 @@ public domain で公開されている<a href="https://github.com/nothings/stb">
 <p>以上の部分で<strong>画像を受け取る配列の用意</strong>、<strong>画面のキャプチャ</strong>、<strong>画像の保存</strong>をおこなっています。</p>
 <p>実はこのままだと画像の上下が逆になるのですが、今回はこのまま進めます。
 すごく余裕がある人は、正しい向きで書き出されるように修正してみるとよい練習になると思います。</p>
-<h3 id="_11">画像を受け取る配列の用意</h3>
+<h3 id="_10">画像を受け取る配列の用意</h3>
 <p>まず<code>glfwGetFramebufferSize</code>を使って画面の大きさを取得します。<code>w, h</code>に幅と高さの値がはいります。
 つぎにピクセルの値を保存する配列を用意します。
 型は<code>unsigned int</code>で、<code>new</code>を用いてピクセル数分の配列をつくります。</p>
-<h3 id="_12">画面のキャプチャ</h3>
+<h3 id="_11">画面のキャプチャ</h3>
 <p><code>glReadPixels</code>を利用します。
 引数は、取得したい画像の ( 原点x, 原点y, 幅, 高さ, 色, 型, 結果をうけとる配列 ) です。
 原点と幅については以下のようになっていて、ウィンドウ全体に対して青い部分がキャプチャされます。
 画面全体を取得するために、原点と幅、高さをウィンドウと揃えました。</p>
 <p>詳しくは<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glReadPixels.xml">こちら</a></p>
-<p><img src="docs/capture.png" width="600"></p>
-<h3 id="_13">画像の保存</h3>
+<p><img src="images/capture.png" width="600"></p>
+<h3 id="_12">画像の保存</h3>
 <p><code>stbi_write_png</code>を利用し、png画像を保存します。
 引数は、( ファイル名, 幅, 高さ, 色の数, 画像の配列, 1行の長さ(色数×幅) ) です。
 保存場所は各自で書き換えてください。</p>
 <p>使い方の詳しい説明はソースファイルに書いてあります。(配布したサンプルまたは<a href="https://github.com/nothings/stb/blob/master/stb_image_write.h">ここ</a>)</p>
+<h2 id="_13">課題</h2>
+<h3 id="1">課題1</h3>
+<p>各頭部の更新処理 (上のコード参照) を書き換えて最初に示したようなゲームを完成させてください。
+以下の条件を想定しますが、成り立っていれば数値を変えてもいいです。</p>
+<ul>
+<li>胴体に当たった頭部がその胴体と一緒に動くようにしてください。</li>
+<li>胴体はx方向に -0.2 の速度で動いています。</li>
+<li>首の高さは y = -6 です</li>
+</ul>
+<h3 id="2">課題2</h3>
+<p>以下のことをおこなってください。</p>
+<ul>
+<li>見た目の面白さのため、落下の仕方や左右の動きを変更してください。</li>
+<li>ゲーム性を高めるため、点数の計算やゲームオーバー判定、難易度の調整などをおこなってください。</li>
+</ul>
               
             </div>
           </div>
