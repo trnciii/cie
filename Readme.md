@@ -1,4 +1,10 @@
-# OpenGL macOS 用テキスト
+# macOS 用テキスト
+
+ここのリポジトリから生成されたテキストは [Release](https://github.com/trnciii/cie/releases) で ciem.zip としてダウンロードできます。
+解凍し、site/index.html から開くことができます。
+
+
+## テキストの管理について
 
 この教材は mkdocs というアプリケーション を利用して作られています。
 mkdocs はマークダウンという読み書きしやすい形式で書かれたファイルから静的ウェブサイトを作ることができます。
@@ -13,7 +19,7 @@ mkdocs はマークダウンという読み書きしやすい形式で書かれ�
 * ウェブサイトのビルド https://www.mkdocs.org/user-guide/deploying-your-docs/#other-providers
 * フォルダの構成や設定について https://www.mkdocs.org/user-guide/writing-your-docs/
 
-## インストール
+### インストール
 
 https://www.mkdocs.org/user-guide/installation/
 
@@ -24,7 +30,7 @@ pip は Python と一緒にインストールされていると思います。
 `$ pip install mkdocs`
 
 
-## ビルド
+### ビルド
 
 html 等で構成されたウェブサイト用のファイル群へ変換する方法です。
 
@@ -39,7 +45,7 @@ https://www.mkdocs.org/user-guide/deploying-your-docs/#other-providers
 また、フォルダごと学生に配布することも可能だと思います。
 
 
-## ファイルの構成
+### ファイルの構成
 
 mkdocs のための設定ファイルや、記事のソースファイルの配置について説明します。
 
