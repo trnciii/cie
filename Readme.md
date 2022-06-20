@@ -2,6 +2,7 @@
 
 ここのリポジトリから生成されたテキストは [Release](https://github.com/trnciii/cie/releases) で ciem.zip としてダウンロードできます。
 解凍し、site/index.html から開くことができます。
+また、サイトは[GitHub Pages](https://trnciii.github.io/cie/) にも公開されています。
 
 
 ## テキストの管理について
